@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the tables for handling paths and processes and the core process 
+    handling all other process definitions -->
+    
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'rootprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			rootprocid TEXT,
+			title varchar(128),
+			label varchar(255),
+			creator varchar(32),
+			PRIMARY KEY (rootprocid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'subprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			rootprocid TEXT,
+			subprocid TEXT,
+			version varchar(16),
+			minuserstratum integer,
+			title varchar(128),
+			label varchar(255),
+			creator varchar(32),
+			access varchar(8),
+			createdate date,
+			PRIMARY KEY (subprocid,version)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'procdiv'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			subprocid TEXT,
+			division varchar(16),
+			PRIMARY KEY (subprocid,division)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'procsys'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			subprocid TEXT,
+			system varchar(16),
+			srcsystem varchar(16),
+			dstsystem varchar(16),
+			srcdivision varchar(16),
+			dstdivision varchar(16),
+			PRIMARY KEY (subprocid,system)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparams'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			rootprocid TEXT,
+			subprocid TEXT,
+			version varchar(16),
+			parent varchar(32),
+			element varchar(32),
+			paramid varchar(32),
+			paramtyp varchar(8),
+			tagorattr character(1),
+			required character(1),
+			defaultvalue varchar(32),
+			bandid varchar(32) DEFAULT 'False',
+			PRIMARY KEY (subprocid,version,parent,element,paramid,defaultvalue,bandid)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparamsetvalues'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			rootprocid TEXT,
+			subprocid TEXT,
+			version varchar(16),
+			parent varchar(32),
+			element varchar(32),
+			paramid varchar(32),
+			setvalue varchar(32),
+			label varchar(128),
+			PRIMARY KEY (subprocid,version,parent, element,paramid,setvalue)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparamsetminmax'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			rootprocid varchar(32),
+			subprocid varchar(32),
+			version varchar(16),
+			parent varchar(32),
+			element varchar(32),
+			paramid varchar(32),
+			minval real,
+			maxval real,
+			PRIMARY KEY (subprocid,version,parent,element,paramid)
+		</command>
+	</process>
+	
+</sql>

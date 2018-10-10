@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the table that hold regions -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'system' table = 'regioncats'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			stratum smallint,
+			regioncat TEXT,
+			parentcat varchar(32),
+			title varchar(128),
+			label varchar(255),
+			PRIMARY KEY (regioncat,stratum)
+		</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'system' table = 'defregions'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			regioncat varchar(32) NOT NULL, 											
+			regionid varchar(32),
+			regionname varchar(64),
+			parentid varchar(32) NOT NULL,
+			title TEXT,
+  			label TEXT,
+			PRIMARY KEY (regioncat,regionid)
+		</command>
+	</process>
+
+
+	
+	<!-- The spatial extents of all kinds of regions, whethher default, tract or site is in the table region-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'system' table = 'regions'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			regioncat TEXT,
+			regionid TEXT,
+			regiontype char(1),
+  			epsg smallint,
+  			ullat double precision,
+ 			ullon double precision,
+ 			urlat double precision,
+ 			urlon double precision,
+ 			lrlat double precision,
+ 			lrlon double precision,
+ 			lllat double precision,
+ 			lllon double precision,
+ 			minx double precision,
+ 			miny double precision,
+ 			maxx double precision,
+ 			maxy double precision,
+  			PRIMARY KEY (regionid)
+		</command>
+	</process>
+	
+	<!-- link all landsat wrs falling inside regions-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'system' table = 'regionswrs'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype char(1),
+ 			wrs char(1),
+ 			ascdesc char(1) DEFAULT 'D',
+ 			path smallint,
+ 			row smallint,
+  			PRIMARY KEY (regionid,wrs,path,row,ascdesc)
+		</command>
+	</process>
+	
+	<!-- link all modis tiles falling inside regions-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'system' table = 'regionsmodis'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype char(1),
+ 			path smallint,
+ 			row smallint,
+  			PRIMARY KEY (regionid,path,row)
+		</command>
+	</process>	
+
+	
+</sql>

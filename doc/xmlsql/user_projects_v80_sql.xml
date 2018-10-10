@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the table that defines user projects and project types -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'userprojects'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigserial,
+			projid TEXT,
+			projname varchar(64) NOT NULL,
+			owner varchar(32) NOT NULL,
+			creator varchar(32) NOT NULL,
+			share smallint DEFAULT 5,
+			title varchar(128),
+			label varchar(256),
+			descript TEXT,
+			createdate date DEFAULT CURRENT_DATE,
+			PRIMARY KEY (projid)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projlevels'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command> 
+			projlevel TEXT,
+			title varchar(64),
+			label varchar(128),
+			PRIMARY KEY (projlevel)
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projlevels'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command> 
+			<columns>projlevel,title,label</columns>
+			<values>'TRANSINDEX','Transformed indexing using multiband data','Define deterministic model from multiband data using unitary matrix transformation and reference data'</values>
+			<values>'STATS','Statistical modeling - not implemented','Define statistical model from multiband data using unitary matrix transformation and reference data'</values>
+			<values>'HYDRO','Hydrological model calibration','Hydrological model calibration by definition of relation between soil moisture conditions and runoff/evapotranspiration'</values>
+			<values>'TCI','Topographic conversion/wetness modeling','Calibrate function defining soil wetness from topographic conditions and hydrological estimates'</values>
+			<values>'ES','Expert system rule defintions','Calibrate expert rules for mapping local/regional/global conditions'</values>
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projtypes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			projid TEXT, 
+			projlevel varchar(32),
+			title varchar(64),
+			PRIMARY KEY (projid)
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projtypes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>projid,projlevel,title</columns>
+			<values>'super','*','super user theme'</values>
+			<values>'soilmoisture','TRANSINDEX','soimoisture modelling and estimation'</values>
+			<values>'soilfertility','TRANSINDEX','soil fertility modelling and estimation'</values>
+			<values>'mineral','TRANSINDEX','mineral modelling and mapping'</values>
+			<values>'forest','TRANSINDEX','forest biomass and tree density modelling and estimation'</values>
+			<values>'crop','TRANSINDEX','crop biomass and tree density modelling and estimation'</values>
+			<values>'hydro','HYDRO','hydrological modelling and runoff estimation'</values>
+			<values>'flood','HYDRO','flood modelling and flood volume estimation'</values>
+			<values>'wetland','ES','wetland mapping and categorization'</values>
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projkeywords'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			projid TEXT,
+			keyword TEXT,
+			PRIMARY KEY (projid,keyword)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projsensors'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			projid TEXT,
+			sensorid TEXT,
+			PRIMARY KEY (projid,sensorid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'projancil'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			projid TEXT,
+			ancilid TEXT,
+			PRIMARY KEY (projid,ancilid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'userlocale' table = 'linkprojregion'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			projid TEXT,
+			regionid TEXT,
+			PRIMARY KEY (projid,regionid)
+		</command>
+	</process>
+</sql>

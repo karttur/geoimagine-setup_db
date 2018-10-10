@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the tables for landsat scenes, bands and masks -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'scenes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid character(21),
+			source char(3),
+			product TEXT, 
+			sensat character(3), 
+			acqdate date,
+			doy smallint,
+			scenefilename character varying(128),
+			archive varchar(16),
+			typeid character varying(16),
+			L1type character varying(8),
+			collection character varying(8),
+			tier character varying(8),
+			dataunit character varying(32),
+			folder varchar(16),
+			proddate date,
+			wrs character(1),
+			path smallint,
+			row smallint,
+			organized character(1) DEFAULT 'N',
+			downloaded character(1) DEFAULT 'N',
+			exploded character(1) DEFAULT 'N',
+			Lupdate character(1) DEFAULT 'N',
+			Cupdate character(1) DEFAULT 'N',
+			Tupdate character(1) DEFAULT 'N',
+			Dupdate character(1) DEFAULT 'N',
+			redundant character(1) DEFAULT 'N',
+			deleted character(1) DEFAULT 'N',
+			maskstatus character(1) DEFAULT 'N',
+			metacheck character(1) DEFAULT 'N',
+			tgnote varchar(32) DEFAULT 'ok',
+			PRIMARY KEY (sceneid,source,proddate)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'scenesgeo'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneID character(21),
+			product TEXT,
+			reflins integer,
+			refcols integer,
+			projection character varying(32),
+			utmzone integer,
+			datum character varying(16),
+			esundist real,
+			sunzenith real,
+			sunazimuth real,
+			sunangleunits character varying(16),
+			ullat double precision,
+			ullon double precision,
+			lrlat double precision,
+			lrlon double precision,
+			minx double precision,
+			miny double precision,
+			maxx  double precision,
+			maxy  double precision,
+			west double precision,
+			east double precision,
+			north  double precision,
+			south double precision,			
+			PRIMARY KEY (sceneID,product)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'bands'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneID character(21),  
+			bandfilename character varying(128),
+			shortname character varying(16),
+			longname character varying(64),
+			source char(3),
+			folder character varying(32),
+			band character varying(32),
+			prefix character varying(32),
+			product TEXT,
+			suffix character varying(32),
+			masked character (1) DEFAULT 'N',
+			defaultext character varying(8),
+			filecat character (1),
+			cellnull integer,
+			celltype character varying(8),
+			scalefac real,
+			offsetadd real,
+			dataunit character varying(32),
+			proddate date,
+			status character varying(16) DEFAULT 'unknown',
+			PRIMARY KEY (sceneID,band,product)
+		</command>
+	</process>
+
+
+	
+</sql>

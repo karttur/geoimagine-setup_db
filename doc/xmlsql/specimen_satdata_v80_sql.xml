@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the tables for satellite extracted data for sample points -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'scene'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			imageid bigserial,	
+			sceneID TEXT NOT NULL,	
+			source TEXT NOT NULL,	
+			product TEXT,
+			folder TEXT,
+			acqdatestr varchar(17),
+			acqdate date,
+			path smallint,
+			row smallint,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (source, product, folder, acqdatestr, path, row)	
+		</command>
+	</process>
+	
+	<!-- sceneplot-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'sceneplot'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			imageid bigint,
+			plotid TEXT,	
+            status char(1) NOT NULL,
+            neighbors smallint,
+    		PRIMARY KEY (imageid,plotid)	
+		</command>
+	</process>
+	
+	<!-- pointsrfi-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'ptsrfi'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			imageid bigint,
+			plotid TEXT,	
+            band varchar(8),
+            srfi integer,
+    		PRIMARY KEY (imageid,plotid,band)	
+		</command>
+	</process>
+	
+	<!-- plotsrfi-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'plotsrfi'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			imageid bigint,
+			plotid TEXT,	
+            band varchar(8),
+            srfi integer,
+    		PRIMARY KEY (imageid,plotid,band)	
+		</command>
+	</process>
+	
+	<!-- kernelsrfi-->
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'kernelsrfi'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			imageid bigint,
+			plotid TEXT,	
+            band varchar(8),
+            srfi integer,
+            srfistd integer,
+    		PRIMARY KEY (imageid,plotid,band)	
+		</command>
+	</process>
+	
+</sql>

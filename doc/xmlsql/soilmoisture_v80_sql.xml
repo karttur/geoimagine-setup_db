@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the table for ground sampled data -->
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'datasets'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command> 
+			dsid TEXT NOT NULL,   
+			dsname VARCHAR(32) NOT NULL,
+			instid TEXT NOT NULL,
+			regionid VARCHAR(32) NOT NULL,
+			regioncat VARCHAR(32) NOT NULL,
+			title VARCHAR(256),
+			label VARCHAR(256),
+			dataurl VARCHAR(256),
+			metaurl VARCHAR(256),
+			metapath VARCHAR(256),
+			datadir VARCHAR(256),
+			datafile VARCHAR(256),
+			startdate DATE,
+			enddate DATE, 
+			PRIMARY KEY(dsid)
+    	</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'networks'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command> 
+			networkid VARCHAR(32),
+			network TEXT,   
+			PRIMARY KEY(network)
+    	</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'stations'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			lat double precision,
+			lon double precision,
+			smmindepth float,
+			smmaxdepth float,
+			airtemp char(1) DEFAULT 'N',
+			soiltemp char(1) DEFAULT 'N',
+			precip char(1) DEFAULT 'N',
+			snowdepth char(1) DEFAULT 'N',
+			createdate date DEFAULT CURRENT_DATE,
+			PRIMARY KEY (stationid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'daily05'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'noon05'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'morning05'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'afternoon05'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'evening05'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'dailytop'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'noontop'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'morningtop'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'afternoontop'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'soilmoisture' table = 'eveningtop'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			networkid VARCHAR(32),
+			stationid TEXT,
+			datum date,
+			soilmoisture float,
+			PRIMARY KEY (networkid,stationid,datum)
+		</command>
+	</process>
+
+
+	
+</sql>	 

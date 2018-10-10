@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs and fills the tables that defines the different cell types and file  
+	types that the system can handle -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'celltypes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			gdal varchar(8),
+    		arr char(1),
+    		np varchar(8), 
+    		usgs varchar(8),
+    		PRIMARY KEY (gdal)
+		</command>
+	</process>
+
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'celltypes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>gdal, arr, np, usgs</columns>
+			<values>'Byte', 'B', 'uint8', 'UINT8'</values>
+			<values>'Int16', 'h', 'int16', 'INT16'</values>
+			<values>'UInt16', 'H', 'uint16', 'UINT16'</values>
+			<values>'Int32', 'l', 'int32', 'INT32'</values>
+			<values>'UInt32', 'L', 'uint32', 'UINT32'</values>
+			<values>'Float32', 'f', 'float32', 'FLOAT32'</values>
+			<values>'Float64', 'd', 'float64', 'FLOAT64'</values>
+			dummy		
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'process' table = 'gdalformat'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			hdr varchar(8),
+    		dat varchar(8),
+    		gdaldriver varchar(8), 
+    		PRIMARY KEY (hdr,dat,gdaldriver)
+		</command>
+	</process>
+
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'gdalformat'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>hdr, dat, gdaldriver</columns>
+			<values>'.tif', '*', 'GTiff'</values>
+			<values>'.ers', '*', 'ERS'</values>
+			<values>'tif', '*', 'GTiff'</values>
+			<values>'ers', '*', 'ERS'</values>
+			<values>'csv', '*', 'none'</values>
+			<values>'xml', '*', 'none'</values>
+			<values>'txt', '*', 'none'</values>
+			<values>'.csv', '*', 'none'</values>
+			<values>'.xml', '*', 'none'</values>
+			<values>'.txt', '*', 'none'</values>
+			<values>'.hdf', '*', 'HDF4'</values>	
+			<values>'hdf', '*', 'HDF4'</values>
+			<values>'HDF', '*', 'HDF4'</values>
+			<values>'.HDF', '*', 'HDF4'</values>
+			<values>'lis', '*', 'GENBIN'</values>
+			<values>'.lis', '*', 'GENBIN'</values>
+			<values>'1x1', '*', 'GENBIN'</values>
+			<values>'.1x1', '*', 'GENBIN'</values>
+			<values>'hdr', 'bil', 'bil'</values>
+			<values>'.hdr', '.bil', 'bil'</values>
+			<values>'shp', '*', 'shp'</values>
+			<values>'.shp', '.*', 'shp'</values>
+			<values>'adf', '*', 'AIG'</values>
+			<values>'.adf', '.*', 'AIG'</values>
+			<values>'zip', '*', 'none'</values>
+			<values>'.zip', '.*', 'none'</values>
+			<values>'adf', '*', 'AIG'</values>
+			<values>'.adf', '.*', 'AIG'</values>
+			<values>'e00', '*', 'E00GRID'</values>
+			<values>'.e00', '.*', 'E00GRID'</values>
+			<values>'tar.gz', '*', 'none'</values>
+			<values>'.tar.gz', '.*', 'none'</values>
+			<values>'sql', '*', 'none'</values>
+			<values>'.sql', '.*', 'none'</values>
+			<values>'pos', 'csv', 'none'</values>
+			<values>'.pos', '.csv', 'none'</values>
+			<values>'asc', 'aai', 'AAIGrid'</values>
+			<values>'.asc', '.aai', 'AAIGrid'</values>
+			<values>'.zip', '.zip', 'none'</values>
+			<values>'.tar.bz2', '.tar.bz2', 'none'</values>
+		</command>
+	</process>
+	
+	
+INSERT INTO process.gdalformat (hdr,dat,gdaldriver) VALUES('asc','aai', 'AAIGrid');
+'c'	char	character	1
+'b'	signed char	int	1
+'B'	unsigned char	int	1
+'u'	Py_UNICODE	Unicode character	2 (see note)
+'h'	signed short	int	2
+'H'	unsigned short	int	2
+'i'	signed int	int	2
+'I'	unsigned int	long	2
+'l'	signed long	int	4
+'L'	unsigned long	long	4
+'f'	float	float	4
+'d'	double	float	8
+
+Byte/
+Int16/
+UInt16/
+UInt32/
+Int32/
+Float32/
+Float64/
+CInt16/
+CInt32/
+CFloat32/
+CFloat64}
+
+</sql>

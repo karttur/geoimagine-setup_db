@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- installs the sentinel regions table -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'regions'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype varchar(8),
+ 			mgrs char(5),
+ 			utm smallint,
+ 			mgrsid char(3),
+  			PRIMARY KEY (regionid,mgrs)
+		</command>
+	</process>
+	
+	<!-- installs the modis regions table -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'modis' table = 'regions'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype varchar(8),
+ 			htile smallint,
+ 			vtile smallint,
+  			PRIMARY KEY (regionid,htile,vtile)
+		</command>
+	</process>
+	
+	<!-- installs the landsat regions table -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'regions'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype varchar(8),
+ 			path smallint,
+ 			row smallint,
+ 			wrs smallint,
+ 			dir char(1),
+ 			prstr char(8),
+  			PRIMARY KEY (regionid,wrs,dir,prstr)
+		</command>
+	</process>
+
+</sql>

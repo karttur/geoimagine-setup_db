@@ -1,0 +1,5 @@
+#creates modis regions table = N
+xmlsql/all_system_regions_v80_sql.xml
+
+
+

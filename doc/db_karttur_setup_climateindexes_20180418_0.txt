@@ -1,0 +1,2 @@
+#climateindexes_vXX_sql.xml adds the schema and table for climate indexes
+xmlsql/climateindexes_v80_sql.xml

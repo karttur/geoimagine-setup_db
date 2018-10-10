@@ -1,0 +1,90 @@
+# general_schema_vXX_sql.xml installs the default database schemas
+xmlsql/general_schema_v80_sql.xml
+
+# general_processes_vXX_sql.xml installs the tables for handling paths and processes and 
+# the core process handling all other process definitions,
+xmlsql/general_processes_v80_sql.xml
+
+#general_records_vXX_sql.xml adds records for super users and the process for managing all other processes
+xmlsql/general_records_v80_sql.xml
+
+# general_GDAL_vXX_sql.xml installs and fills the tables that defines the different 
+# cell types and file types that the system can handle
+xmlsql/general_GDAL_v80_sql.xml
+
+# general_processeschain_vXX_sql.xml installs the automated processing chains tables
+xmlsql/general_processeschain_v80_sql.xml
+
+# compositions_vXX_sql.xml installs the tables defining all layer compositions  
+xmlsql/compositions_v80_sql.xml
+
+# ancillary_vXX_sql.xml installs the tables that defines ancillary data sources
+xmlsql/ancillary_v80_sql.xml
+    
+# endmember_vXX_sql.xml tables for soil line and vegetaton spectral extraction
+xmlsql/endmember_v80_sql.xml
+
+#NOT DONE
+#speclib_v80_sql.xml
+
+# landsat_scenes_bands_vXX_sql.xml installs the tables for landsat scenes, bands and masks
+xmlsql/landsat_scenes_bands_v80_sql.xml
+
+# landsat_templates_vXX_sql.xml installs the landsat template table
+xmlsql/landsat_templates_v80_sql.xml
+
+# landsat_usgs_meta_vXX_sql.xml installs the core landsat meta tables, the columns are installed later
+xmlsql/landsat_usgs_meta_v80_sql.xml
+
+# layout_vXX_sql.xml adds the tables for layout
+xmlsql/layout_v80_sql.xml
+
+# modis_scenes_bands_vXX_sql.xml adds both the table for holding all scenes available at the 
+# datapool as well as the tables for local modis data holdings
+xmlsql/modis_scenes_bands_v80_sql.xml
+
+# modis_template_vXX_sql.xml installs the modis template table, and adds records for the MODIS products in use
+xmlsql/modis_template_v80_sql.xml
+
+# modis_tilecoords_vXX_sql.xml adds the table for modis tile coordinates
+xmlsql/modis_tilecoords_v80_sql.xml
+
+# projects_vXX_sql.xml installs the tables that defines user projects and project types
+
+
+# system_vXX_sql.xml installs the tables that hold system default regions and categories
+xmlsql/system_v80_sql.xml
+
+# regions_vXX_sql.xml installs the tables that hold regions
+xmlsql/regions_v80_sql.xml
+
+# specimen_vXX_sql.xml adds the table for ground sampled data
+xmlsql/specimen_v80_sql.xml
+
+# specimen_satdata_vXX_sql.xml adds the table for linking sat data to sample points
+xmlsql/specimen_satdata_v80_sql.xml
+
+# topo_vXX_sql.xml adds the db for point elevation data
+xmlsql/topo_v80_sql.xml
+
+# User projects - defines users and user projects
+xmlsql/user_projects_v80_sql.xml
+
+# usersvXX_sql.xml installs the tables that hold all the system users
+xmlsql/users_v80_sql.xml
+
+# superuserprojs_vXX_sql.xml adds the superusers of the system,
+# NOTE - THE XML FILE MUST BE EDITED TO SET THE PREFERED SUPER USERS
+xmlsql/user_super_v80_sql.xml
+
+#climateindexes_vXX_sql.xml adds the schema and table for climate indexes
+xmlsql/climateindexes_v80_sql.xml
+
+#sentinel_scenes_bands_vXX_sql.xml adds the schema for sentinel data
+xmlsql/sentinel_scenes_bands_v80_sql.xml
+
+#sentinel_tilecoord_vXX_sql.xml adds the coordinates for sentinel tiles
+xmlsql/sentinel_tilecoords_v80_sql.xml
+
+#sentinel_template_vXX_sql.xml adds the sentinel tile templates
+xmlsql/sentinel_template_v80_sql.xml

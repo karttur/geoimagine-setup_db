@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the core sentinel meta tables, the columns are installed later -->
+	< NOT YET DONE
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_main'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid TEXT,
+			PRIMARY KEY (sceneid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_sub'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid TEXT,
+			PRIMARY KEY (sceneid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_geo'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid TEXT,
+			PRIMARY KEY (sceneid)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_url'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid TEXT,
+			PRIMARY KEY (sceneid)
+		</command>
+	</process>
+
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_pixels'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sceneid TEXT,
+			PRIMARY KEY (sceneid)
+		</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_links'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sensor varchar(16),
+			csvheader varchar(64),
+			xmlparentid varchar(64),
+			xmlelement varchar(64),
+			metatable varchar(32),
+			metacolumn varchar(32),
+			metatype  varchar(16),
+			metalength integer,
+			required char(1),
+			defaultvalue varchar(32),
+			PRIMARY KEY (sensor,metacolumn)
+		</command>
+	</process>
+	
+
+</sql>

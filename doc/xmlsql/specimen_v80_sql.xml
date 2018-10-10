@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the table for ground sampled data -->
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'datasets'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command> 
+			dsid TEXT NOT NULL,   
+			dsname VARCHAR(32) NOT NULL,
+			instid TEXT NOT NULL,
+			regionid VARCHAR(32) NOT NULL,
+			regioncat VARCHAR(32) NOT NULL,
+			title VARCHAR(256),
+			label VARCHAR(256),
+			dataurl VARCHAR(256),
+			metaurl VARCHAR(256),
+			metapath VARCHAR(256),
+			datadir VARCHAR(256),
+			datafile VARCHAR(256),
+			startdate DATE,
+			enddate DATE, 
+			PRIMARY KEY(dsid)
+    	</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'dscompid'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command> 
+			dsid TEXT,   
+			compid  TEXT,
+			PRIMARY KEY(dsid,compid)
+    	</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'plot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			siteid TEXT,
+			aream2 integer,
+			userownid varchar(32),
+			biome varchar(32),
+			share smallint DEFAULT 5,
+			lat double precision,
+			lon double precision,
+			createdate date DEFAULT CURRENT_DATE,
+			PRIMARY KEY (plotid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'site'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			siteid TEXT,
+			aream2 integer,
+			userownid varchar(32),
+			biome varchar(32),
+			share smallint DEFAULT 5,
+			createdate date DEFAULT CURRENT_DATE,
+			PRIMARY KEY (plotid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'surfaceplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			obsdate date,
+			domsurface varchar(32),
+			domsurfshare integer,
+			domuse varchar(32),
+			domuseshare integer,
+			domcover varchar(32),
+			domcovershare integer,
+			erosion varchar(32),
+			erosionshare integer,
+			dommngmt varchar(32),
+			PRIMARY KEY (plotid,obsdate)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'topoplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			toposcale integer,
+			slope real,
+			aspect real,
+			elevation real,
+			profc real,
+			longc real,
+			crosc real,
+			cellstats varchar(32),
+			PRIMARY KEY (plotid,toposcale,cellstats)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'landformplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			s_scale integer,
+			l_scale integer,
+			TPI real,
+			TRI real,
+			TPIlf varchar(32),
+			curvlf varchar(32),
+			cellstats varchar(32),
+			PRIMARY KEY (plotid,s_scale,l_scale,cellstats)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'rounoffplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			runoff real,
+			obsdate varchar(8),
+			PRIMARY KEY (plotid,runoff,obsdate)
+		</command>
+	</process>
+	
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'biomassplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			obsdate date,
+			species varchar(32) DEFAULT 'all',
+			spshare integer,
+			spcover integer,
+			spvol real,
+			spage real,
+			spagb real,
+			spstemdens real,
+			spbiomass real,
+			spheight real,
+			spharvest real,
+			spharvestdate date,
+			spphase varchar(16),
+			PRIMARY KEY (plotid,obsdate,species)
+		</command>
+	</process>
+	
+	<processx processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'soilplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			obsdate date,
+			infiltration real,
+			rootpendepth real,
+			texture varchar(64),
+			PRIMARY KEY (plotid,acqdate)
+		</command>
+	</processx>
+ 
+	<processx processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'mineralplot'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+			obsdate date,
+			infiltration real,
+			rootpendepth real,
+			PRIMARY KEY (plotid,acqdate)
+		</command>
+	</processx>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'plotwrs'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+ 			path smallint,
+ 			row smallint,
+ 			wrs character(1),
+ 			ascdesc character(1) DEFAULT 'D',
+ 			PRIMARY KEY (plotid,path,row,wrs,ascdesc)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'specimen' table = 'plotmodtile'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid TEXT,
+ 			h smallint,
+ 			v smallint,
+ 			PRIMARY KEY (plotid)
+		</command>
+	</process>
+	
+</sql>	 

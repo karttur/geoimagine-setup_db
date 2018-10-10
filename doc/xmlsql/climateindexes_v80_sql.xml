@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'climateindex'></parameters>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'climateindex' table = 'climindex'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			index TEXT NOT NULL,
+			acqdate date,
+			acqdatestr char(6),
+			value real,			
+			PRIMARY KEY(index,acqdate)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'climateindex' table = 'indexmeta'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			index TEXT NOT NULL,
+			type TEXT NOT NULL,	
+ 			source TEXT NOT NULL,
+ 			url TEXT NOT NULL,
+ 			update date,
+ 			PRIMARY KEY (index)
+		</command>
+	</process>
+		
+</sql>	 

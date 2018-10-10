@@ -1,0 +1,18 @@
+#creates all schemas, make sure it is set to overwrite = N
+#xmlsql/general_schema_v80_sql.xml
+
+#creates all compositions, make sure it is set to overwrite = N
+#xmlsql/compositions_v80_sql.xml
+
+#creates all regions, make sure it is set to overwrite = N
+xmlsql/regions_v80_sql.xml
+
+#sentinel_scenes_bands_vXX_sql.xml adds the schema for sentinel data
+#xmlsql/sentinel_scenes_bands_v80_sql.xml
+
+#sentinel_tilecoord_vXX_sql.xml adds the coordinates for sentinel tiles
+#xmlsql/sentinel_tilecoords_v80_sql.xml
+
+#sentinel_template_vXX_sql.xml adds the sentinel tile templates
+#xmlsql/sentinel_template_v80_sql.xml
+

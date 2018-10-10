@@ -1,0 +1,10 @@
+#creates all schemas, make sure it is set to overwrite = N
+#xmlsql/general_schema_v80_sql.xml
+
+#creates all compositions, make sure it is set to overwrite = N
+#xmlsql/compositions_v80_sql.xml
+
+#sentinel_tilecoord_vXX_sql.xml adds the coordinates for sentinel tiles
+xmlsql/landsat_tilecoords_v80_sql.xml
+
+

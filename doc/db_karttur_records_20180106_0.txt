@@ -1,0 +1,2 @@
+#general_records_vXX_sql.xml adds records for super users and the process for managing all other processes
+xmlsql/general_records_v80_sql.xml

@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the table for layout -->
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'rasterpalcolors'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+		palette varchar(32),
+		value smallint NOT NULL,
+		red smallint NOT NULL,
+		green smallint NOT NULL,
+		blue smallint NOT NULL,
+		alpha smallint NOT NULL,
+		label varchar(32),
+		hint varchar(128),
+		PRIMARY KEY (palette,value)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'legend'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>			
+			compid TEXT,
+			source TEXT,
+			product varchar(24),
+			suffix varchar(48),
+			
+			palmin smallint,
+			palmax smallint,
+			
+			precision smallint,
+			
+			two51 char(1) DEFAULT 'N',
+			two52 char(1) DEFAULT 'N',
+			two53 char(1) DEFAULT 'N',
+			two54 char(1) DEFAULT 'N',
+			two55 char(1) DEFAULT 'N',
+			
+			height smallint,
+			width smallint,
+			
+			measure char(1),
+			buffer smallint,
+			separatebuffer smallint,
+			frame smallint,
+			framecolor smallint,
+			label char(1),
+			font varchar(32),
+			fontcolor varchar(16),
+			fontsize smallint,
+			sticklen smallint,
+			compresslabels char(1),
+			
+			columns smallint,
+			matrix char(1),
+			columntext TEXT,
+			rowtext TEXT,
+			columnhead TEXT,
+			rowhead TEXT,
+			
+			PRIMARY KEY (compid,source,product,suffix)
+    	</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'scaling'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>			
+			compid TEXT,
+			source TEXT,
+			product varchar(24),
+			suffix varchar(48),
+
+			power real,
+			powerna smallint,
+			mirror0 char(1),
+			scalefac real,
+			offsetadd real,
+			
+			PRIMARY KEY (compid,source,product,suffix)
+    	</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'defaultpalette'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>			
+			compid TEXT,
+			palette TEXT,			
+			PRIMARY KEY (compid,palette)
+    	</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'rasterpalettes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>			
+			compid TEXT,
+			palette TEXT,
+			owner TEXT,
+			access char(1) DEFAULT 'A',
+			PRIMARY KEY (compid,palette)
+    	</command>
+	</process>
+	
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'layout' table = 'pubtext'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+		compid TEXT,
+		product varchar(24),
+		suffix varchar(48),
+		title varchar(255),
+		header varchar(255),
+		subheader varchar(255),
+		legendheader varchar(64),
+		legendtype varchar(16),
+		banner TEXT,
+		hints TEXT,
+		acknow TEXT,
+		descript TEXT,
+		reference TEXT,
+		disclaim TEXT,
+		copyright TEXT,
+		PRIMARY KEY (compid, product, suffix)
+		
+		</command>
+	</process>
+</sql>

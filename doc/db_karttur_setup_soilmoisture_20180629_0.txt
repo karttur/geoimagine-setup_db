@@ -1,0 +1,8 @@
+#creates all schemas, make sure it is set to overwrite = N
+xmlsql/general_schema_v80_sql.xml
+
+
+#creates soilmoisture tables
+xmlsql/soilmoisture_v80_sql.xml
+
+

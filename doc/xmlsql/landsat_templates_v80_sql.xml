@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- installs the landsat template table -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'templatescenes'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sensat character(3), 
+			typeid varchar(16), 
+			subtype character(1), 
+			filecat character(1), 
+			dataunit varchar(32), 
+			L1type varchar(4),
+			collection varchar(2),
+			tier varchar(2),
+			scenenameform varchar(255),
+			basenameform varchar(255),
+			scenecompstr varchar(255),
+			basecompstr varchar(255),
+			archive varchar(16),
+			PRIMARY KEY (typeid,subtype)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'templatelayers'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			sensat character(3) NOT NULL, 
+			typeid varchar(16)  NOT NULL, 
+			compid varchar(128),
+			subtype character(1)  NOT NULL, 
+			filecat character(1), 
+			band varchar(32)  NOT NULL, 
+			prefix varchar(32)  NOT NULL,
+			suffix varchar(32)  NOT NULL, 
+			pattern varchar(128) NOT NULL, 
+			hdfgrid varchar(32),
+			celltype varchar(8), 
+			fileext varchar(8),
+			folder varchar(32) NOT NULL,
+			required character(1),
+			PRIMARY KEY (typeid,subtype,band)
+		</command>
+	</process>
+</sql>

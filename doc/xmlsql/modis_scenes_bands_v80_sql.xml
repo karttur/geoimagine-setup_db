@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!--  adds the table for holding all scenes available at the datapool and the table
+    for local modis data tile holdings -->
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'modis' table = 'datapooltiles'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid character(26),
+			tilefilename character varying(128),
+			source character varying(32), 
+			product varchar(24), 
+			version character(3),
+			acqdate date,
+			h smallint,
+			v smallint,
+			hvtile char(6),
+			PRIMARY KEY (tileid,product,version)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'modis' table = 'tiles'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid character(26),
+			tilefilename character varying(128),
+			source character varying(32),
+			product varchar(24), 
+			version character(3),
+			acqdate date,
+			doy smallint,
+			folder varchar(16) DEFAULT 'original',
+			downloaded character(1) DEFAULT 'N',
+			organized character(1) DEFAULT 'N',
+			exploded character(1) DEFAULT 'N',
+			redundant character(1) DEFAULT 'N',
+			deleted character(1) DEFAULT 'N',
+			maskstatus character(1) DEFAULT 'N',
+			htile integer,
+			vtile integer,
+			PRIMARY KEY (tileid,product,version)
+		</command>
+	</process>
+
+</sql>

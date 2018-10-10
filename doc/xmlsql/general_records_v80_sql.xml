@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the super users and processes for handling all other processes -->
+    
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'rootprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,  title,  label,  creator</columns>
+			<values>'manageprocess', 'Manage database defined process', 'Mangaging a processes requires data on all parameters and their type and default values','thomasg'</values>
+			dummy
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'rootprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,  title,  label,  creator</columns>
+			<values>'Path', 'Set main path reader', 'Set main path reader','thomasg'</values>
+			dummy
+		</command>
+	</process>
+
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'subprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid, subprocid, version, minuserstratum, title,  label, creator, access</columns>
+			<values>'manageprocess', 'addrootproc', '0.8.0','10','Add root process to database', 'Root processes are contianers for processes having similar input/output requirements','thomasg','public'</values>
+			<values>'manageprocess', 'addsubproc', '0.8.0','6','Add sub process to database', 'Adding a sub processes requires data on all parameters and their type and default values','thomasg','public'</values>	
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'subprocesses'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid, subprocid, version, minuserstratum, title,  label, creator, access</columns>
+			<values>'Path', 'path', '0.8.0','10','set main path reading process', 'set main path reading process','thomasg','public'</values>
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparams'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid, version, parent, element, paramid,  paramtyp, tagorattr, required, defaultvalue</columns>
+			<values>'manageprocess','addrootproc','0.8.0','process','parameters', 'rootprocid','text','A','Y',''</values>
+			<values>'manageprocess','addrootproc','0.8.0','process','parameters',  'title','text','T','N',''</values>
+			<values>'manageprocess','addrootproc','0.8.0','process', 'parameters', 'label','text','T','N',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','parameters', 'rootprocid','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process', 'parameters', 'subprocid','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','parameters',  'version','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','parameters',  'minuserstratum','integer','A','Y','1'</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','parameters',  'title','text','T','N',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','parameters',  'label','text','T','N',''</values>
+			
+			<values>'manageprocess','addsubproc','0.8.0','process','system', 'procsys','text','E','E',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','system','procsys', 'system','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','system','procsys', 'srcsystem','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','system','procsys', 'dstsystem','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','system','procsys', 'srcdivision','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','system','procsys', 'dstdivision','text','A','Y',''</values>
+			
+			<values>'manageprocess','addsubproc','0.8.0','process','node', 'parameter','element','E','E',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','node', 'parent','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','process','node', 'element','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','node','parameter', 'paramid','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','node','parameter', 'paramtyp','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','node','parameter', 'tagorattr','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','node','parameter', 'required','text','A','Y',''</values>
+			<values>'manageprocess','addsubproc','0.8.0','node','parameter', 'defaultvalue','text','A','Y',''</values>	
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparams'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid, version, parent, element, paramid,  paramtyp, tagorattr, required, defaultvalue</columns>
+			<values>'Path','path','0.8.0','process','path', 'roipath','text','A','N',''</values>
+			<values>'Path','path','0.8.0','process','path', 'ancilpath','text','A','N',''</values>
+			<values>'Path','path','0.8.0','process','path', 'userpath','text','A','N',''</values>
+			<values>'Path','path','0.8.0','process','path', 'landsatpath','text','A','N',''</values>
+			<values>'Path','path','0.8.0','process','path', 'modispath','text','A','N',''</values>
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparams'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid, version, parent, element, paramid,  paramtyp, tagorattr, required, defaultvalue</columns>
+			<values>'all','userproj','0.8.0','root','userproj', 'userid','text','A','N','view'</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'projectid','text','A','N','view'</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'userpswd','text','A','N',''</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'tractid','text','A','N','*'</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'siteid','text','A','N','*'</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'plotid','text','A','N','*'</values>
+			<values>'all','userproj','0.8.0','root','userproj', 'system','text','A','Y',''</values>
+
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparamsetvalues'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid,version,paramid,parent,element,setvalue,label</columns>
+			<values>'all','userproj', '0.8.0','system', 'userproj','system', 'system','system'</values>
+			<values>'all','userproj', '0.8.0','system', 'userproj','system', 'ancillary','ancillary'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','region','region'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','modis','modis'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','landsat','landsat'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','user','user'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','specimen','specimen'</values>
+			<values>'all','userproj', '0.8.0','system','userproj','system','topo','topo'</values>
+		
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparamsetvalues'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid,version,paramid,parent,element,setvalue,label</columns>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp', 'node','parameter', 'text','text or string'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','real','real number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','int','integer number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','intlist','list of integer number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','textlist','list of text strings'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','bool','boolean'</values>			
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'processparamsetvalues'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>rootprocid,subprocid,version,paramid,parent,element,setvalue,label</columns>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp', 'node','parameter', 'text','text or string'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','real','real number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','int','integer number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','intlist','list of integer number'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','textlist','list of text strings'</values>
+			<values>'manageprocess','addsubproc', '0.8.0','paramtyp','node','parameter','bool','boolean'</values>			
+		</command>
+	</process>
+	
+
+		
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'process' table = 'procsys'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>subprocid, system, srcsystem, dstsystem, srcdivision, dstdivision</columns>
+			<values>'addrootproc','system','NA','NA','NA','NA'</values>
+			<values>'addsubproc','system','NA','NA','NA','NA'</values>
+		</command>
+	</process>
+
+</sql>

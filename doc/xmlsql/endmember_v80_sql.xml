@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the tables for spectral endmembers and soil lines -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'scene'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigserial,	
+			sceneID TEXT NOT NULL,	
+			source TEXT NOT NULL,	
+			product TEXT,
+			acqdatestr varchar(17),
+			acqdate date,
+			path smallint,
+			row smallint,
+    		srcmethod varchar(16),
+    		srcdata TEXT,
+    		bounds TEXT,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (source, product, acqdatestr, path, row, srcmethod, bounds, srcdata)	
+		</command>
+	</process>
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'soilsearch'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,	
+            searchpercent real,
+            vegindex character varying(16),
+            soilindex character varying(16),
+            kernelsd real,
+            sisoilmin integer,
+            sisoilmax integer,
+            visoilmin integer,
+            visoilmax integer,
+            fraction real,
+            jump smallint,
+            pixels int,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (id)	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'vegsearch'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,			
+    		vegindex character varying(16),
+    		searchpercent real,
+    		kernelsd real,
+    		vivegmin integer, 
+    		fraction real, 
+    		jump smallint,
+            pixels int,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (id)	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'soilline'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,			
+    		band character varying(32),
+    		r2 real,
+    		intercept integer,
+    		slope real,
+    		stderr real,   
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (id,band)	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'trimming'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,			
+    		band character varying(32),
+    		min integer,
+    		max integer,
+    		PRIMARY KEY (id,band)	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'endmembers'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,	
+			endmember varchar(16),		
+    		band character varying(32),
+    		mean integer,
+    		std integer,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (id,endmember,band)	
+		</command>
+	</process>	
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'emsampling'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,	
+			darksoil smallint,
+			brightsoil smallint,
+			densveg smallint,
+			water smallint,
+			shadowsoil smallint,
+			floodsoil smallint,
+			seek smallint,
+			inputsamples int,
+			slsamples int,
+			defsamples int,
+			totsamples int,
+			trimming char(1),
+			cleaning char(1),
+			strictclean char(1),		
+    		PRIMARY KEY (id)	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'endmember' table = 'eigenvectors'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			id bigint,	
+			endmember varchar(16),	
+			offsetem varchar(16),	
+    		band character varying(32),
+    		mean real,
+    		createdate date DEFAULT CURRENT_DATE,
+    		PRIMARY KEY (id,endmember,offsetem,band)	
+		</command>
+	</process>
+	
+</sql>

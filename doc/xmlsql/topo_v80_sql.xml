@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- adds the tables for point elevation data -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'topography' table = 'plot'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid bigserial,
+			siteid TEXT NOT NULL,
+			elevation real,
+			lon double precision,
+			lat double precision,
+			acqdate date,
+			acqtime time,
+			compid TEXT,			
+			PRIMARY KEY(lon,lat,acqdate,compid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'topography' table = 'plotwrs'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid bigint,
+ 			path smallint,
+ 			row smallint,
+ 			wrs character(1),
+ 			ascdesc character(1) DEFAULT 'D',
+ 			PRIMARY KEY (plotid,path,row,wrs,ascdesc)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'topography' table = 'plotmodtile'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			plotid bigint,
+ 			h smallint,
+ 			v smallint,
+ 			PRIMARY KEY (plotid)
+		</command>
+	</process>
+		
+</sql>	 

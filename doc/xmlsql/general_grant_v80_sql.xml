@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- GRANTS rights to various db users -->
+    
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='processread' pswd='jii8ubise'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA process TO processread;
+			GRANT SELECT ON ALL TABLES IN SCHEMA process TO processread;
+			GRANT USAGE ON SCHEMA regions TO processread;
+			GRANT SELECT ON regions.tracts, system.defregions TO processread;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='processmanage' pswd='31tjiir8ubise'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+
+			GRANT USAGE ON SCHEMA process TO processmanage;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO processmanage;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='userread' pswd='jii8iuWH87HUDd'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA userlocale TO userread;
+			GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO userread;
+			GRANT USAGE ON SCHEMA regions TO userread;
+			GRANT SELECT ON regions.tracts, regions.sites TO userread;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='managelayout' pswd='jWE-TW4-90m-JUH-'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA layout TO managelayout;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO ManageLayout;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='managemodis' pswd='95y-tbh-GgG-0BJ'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA modis TO managemodis;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO managemodis;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='manageregion' pswd='w94-388-uhH-5UH'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA regions TO manageregion;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REGIONS TO manageregion;
+			GRANT USAGE ON SCHEMA system TO manageregion;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA SYSTEM TO manageregion;
+			GRANT USAGE ON SCHEMA ancillary TO manageregion;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageregion;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='formatread' pswd='jii-8ub-ise'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA process TO formatread;
+			GRANT SELECT ON process.celltypes, process.gdalformat TO formatread;
+		</command>
+	</process>
+	
+
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='regionread' pswd='84i-oOH-thf-tj1'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA regions TO regionread;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO regionread;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO regionread;
+		</command>
+	</process>
+	
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='manageancillary' pswd='w94-3R8-uhH-5CH'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA system TO manageancillary;
+			GRANT SELECT ON ALL TABLES IN SCHEMA SYSTEM TO manageancillary;
+			GRANT USAGE ON SCHEMA ancillary TO manageancillary;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO manageancillary;
+			GRANT USAGE ON SCHEMA climateindex TO manageancillary;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO manageancillary;
+		</command>
+	</process>
+	
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='managesoilmoisture' pswd='w84-3R8-uhH-5DH'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			GRANT USAGE ON SCHEMA soilmoisture TO managesoilmoisture;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO managesoilmoisture;
+			GRANT USAGE ON SCHEMA climateindex TO manageancillary;
+			GRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO managesoilmoisture;
+		</command>
+	</process>
+	
+</sql>

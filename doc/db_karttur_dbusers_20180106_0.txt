@@ -1,0 +1,2 @@
+#general_dbusers_vXX_sql.xml adds db users for handling connections to postgres db
+xmlsql/general_grant_v80_sql.xml

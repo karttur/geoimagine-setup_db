@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	
+	<!-- installs the tables for sentinel tiles, bands and masks -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'granules'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			granuleid TEXT,
+			orbitid varchar(4),
+			acqdate date,
+			acqtime time,
+			sunazimuth real,
+			sunelevation real,
+			doy smallint,
+			source varchar(32),
+			product varchar(32),
+			folder varchar(16),
+			filetype varchar(8) DEFAULT 'zip',
+			filename TEXT,
+			downloaded char(1) DEFAULT 'N',
+			organized char(1) DEFAULT 'N',
+			exploded char(1) DEFAULT 'N',
+			deleted char(1) DEFAULT 'N',
+			declouded char(1) DEFAULT 'N',
+			maskstatus char(1) DEFAULT 'N',
+			metacheck char(1) DEFAULT 'N',
+			tgnote varchar(32) DEFAULT 'None',
+			PRIMARY KEY (granuleid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'granuletiles'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			granuleid TEXT,
+			mgrs char(5),
+			overlap real,
+			PRIMARY KEY (granuleid,mgrs)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'tiles'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid TEXT,
+			utm char(2),
+			mgrs char(5),
+			mgrsid char(3),
+			orbitid varchar(4),
+			acqdate date,
+			acqtime time,
+			sunazimuth real,
+			sunelevation real,
+			doy smallint,
+			source varchar(32),
+			product varchar(32),
+			folder varchar(16),
+			filetype varchar(8) DEFAULT 'zip',
+			filename TEXT,
+			downloaded char(1) DEFAULT 'N',
+			organized char(1) DEFAULT 'N',
+			exploded char(1) DEFAULT 'N',
+			deleted char(1) DEFAULT 'N',
+			declouded char(1) DEFAULT 'N',
+			maskstatus char(1) DEFAULT 'N',
+			metacheck char(1) DEFAULT 'N',
+			tgnote varchar(32) DEFAULT 'None',
+			PRIMARY KEY (tileid)
+		</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'tilemeta'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid TEXT,
+			uuid TEXT,
+			product varchar(16),
+			proclevel varchar(16),
+			orbitnr smallint,
+			orbitdir char(1),
+			cloudcover real DEFAULT -99.0,
+			sensopmode varchar(32),
+			s2datatakeid varchar(128),
+			procbase varchar(16),
+			polmode varchar(16),
+			platformid varchar(16),
+			platformname varchar(16),
+			instrument varchar(16),
+			PRIMARY KEY (tileid)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'granulemeta'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			granuleid TEXT,
+			uuid TEXT,
+			product varchar(16),
+			proclevel varchar(16),
+			orbitnr smallint,
+			orbitdir char(1),
+			cloudcover real DEFAULT -99.0,
+			sensopmode varchar(32),
+			s2datatakeid varchar(128),
+			procbase varchar(16),
+			polmode varchar(16),
+			platformid varchar(16),
+			platformname varchar(16),
+			instrument varchar(16),
+			PRIMARY KEY (granuleid)
+		</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'metatranslate'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			src varchar(64),
+			dst varchar(64),
+			tab varchar(16),
+			typ varchar(16),
+			PRIMARY KEY (src,dst,tab)
+		</command>
+	</process>
+	
+	<process processid ='tableinsert'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'metatranslate'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			<columns>src, dst, tab, typ</columns>
+			<values>'identifier','tileid','metatiles','string'</values>
+			<values>'uuid','uuid','meta','string'</values>
+			<values>'relativeorbitnumber','orbitnr','meta','integer'</values>
+			<values>'orbitdirection','orbitdir','meta','trunc1'</values>
+			<values>'cloudcoverpercentage','cloudcover','meta','real'</values>
+			<values>'sensoroperationalmode','sensopmode','meta','string'</values>
+			<values>'s2datatakeid','s2datatakeid','meta','string'</values>
+			<values>'processingbaseline','procbase','meta','string'</values>
+			<values>'processinglevel','proclevel','meta','string'</values>
+			<values>'producttype','product','metatiles','string'</values>
+			<values>'platformidentifier','platformid','meta','string'</values>
+			<values>'platformname','platformname','meta','string'</values>
+			<values>'instrumentshortname','instrument','meta','string'</values>
+			<values>'polarisationmode','polmode','meta','string'</values>	
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'vectorsearches'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			vectorfile TEXT,
+			searchid TEXT,
+			startdate date,
+			enddate date,
+			platformname varchar(16),
+			product varchar(16),
+			cloudcover real,
+			PRIMARY KEY (vectorfile, searchid, startdate, enddate, platformname, product)
+		</command>
+	</process>
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'sentinel' table = 'bands'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid TEXT,  
+			source varchar(32),
+			product varchar(32),
+			folder char varying(32),
+			band char varying(32),
+			prefix char varying(32),
+			suffix char varying(32),
+			masked char (1) DEFAULT 'N',
+			defaultext char varying(8),
+			filecat char (1) DEFAULT 'B',
+			cellnull integer,
+			celltype char varying(8),
+			dataunit char varying(32),
+			proddate date,
+			status char varying(16) DEFAULT 'unknown',
+			PRIMARY KEY (tileid,band,product)
+		</command>
+	</process>
+
+</sql>

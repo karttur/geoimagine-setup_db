@@ -1,0 +1,5 @@
+#creates modis regions table = N
+xmlsql/SMAP_v80_sql.xml
+
+
+

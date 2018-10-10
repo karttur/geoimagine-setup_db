@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+
+	<!-- installs the modis regions table -->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'modis' table = 'regions'></parameters>
+		<!-- This is the most lengthy setup, avoid deleting-->
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			regionid TEXT,
+			regiontype char(1),
+ 			path smallint,
+ 			row smallint,
+  			PRIMARY KEY (regionid,path,row)
+		</command>
+	</process>
+
+</sql>

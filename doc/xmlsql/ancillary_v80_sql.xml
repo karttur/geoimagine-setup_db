@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+		
+	<!-- installs the table that defines ancillary data sources -->
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'ancillary' table = 'datasets'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command> 
+			dsid TEXT NOT NULL,
+			dsversion VARCHAR(16) NOT NULL,  
+			dsname VARCHAR(32) NOT NULL,
+			instid TEXT NOT NULL,
+			regionid VARCHAR(32) NOT NULL,
+			title VARCHAR(64),
+			label VARCHAR(256),
+			dataurl VARCHAR(256),
+			metaurl VARCHAR(256),
+			accessdate DATE,
+			copyright TEXT,
+			startdate DATE,
+			enddate DATE, 
+			PRIMARY KEY(dsid)
+    	</command>
+	</process>
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'ancillary' table = 'dslayers'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+		dsid TEXT,
+		datadir TEXT,
+		datafile TEXT,
+		datafiletype varchar(16),
+		metadir TEXT,
+		theme VARCHAR(256),
+		subtheme VARCHAR(256),
+		PRIMARY KEY(dsid,datadir,datafile) 
+    	</command>
+	</process>
+		
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'ancillary' table = 'authors'></parameters>
+		<overwrite>Y</overwrite>
+		<delete>N</delete>
+		<command>
+			instid TEXT,
+			authorid TEXT, 
+			authorurl TEXT,
+			authoremail TEXT,
+			authoraddress1 VARCHAR(64),
+			authoraddress2 VARCHAR(64),
+			authorcity VARCHAR(32),
+			authorzip VARCHAR(16),
+			authorstate VARCHAR(32),
+			authorcountryid CHAR(2),
+			authortel VARCHAR(32),
+			authorfax VARCHAR(32),
+			PRIMARY KEY(instid,authorid)
+		</command>
+	</process>
+	
+</sql>	 

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'process'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'ancillary'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'system'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'regions'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'landsat'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'sentinel'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'modis'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'userlocale'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'specimen'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'topography'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'layout'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'endmember'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'export'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'soilmoisture'></parameters>
+	</process>
+	
+	<process processid ='createschema'>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<parameters db = 'karttur' schema = 'smap'></parameters>
+	</process>
+</sql>	 
