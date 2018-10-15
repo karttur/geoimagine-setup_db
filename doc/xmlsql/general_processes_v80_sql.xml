@@ -2,7 +2,7 @@
 <sql>
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
 	
-	<!-- installs the tables for handling paths and processes and the core process 
+	<!-- installs the tables for handling processes and the core process 
     handling all other process definitions -->
     
 	<process processid ='createtable'>
