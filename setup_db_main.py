@@ -110,27 +110,27 @@ if __name__ == "__main__":
     #Add soilmoisture tables - can be removed when rerunning the complete setup
     projFPN = 'doc/db_karttur_setup_soilmoisture_20180629_0.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
-    #BALLE
+    #ERRORCHECK
     
     #Add landsat tables - can be removed when rerunning the complete setup
     projFPN = 'doc/db_karttur_setup_landsat_20181007_0.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
-    #BALLE
+    #ERRORCHECK
     
     #Add system region tables - i.e. the tables that link system specific locus to default regions
     projFPN = 'doc/db_karttur_setup_systemregions_20181005_0.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
-    #BALLE
+    #ERRORCHECK
     
     #Add smap tables - can be removed when rerunning the complete setup
     projFPN = 'doc/db_karttur_setup_SMAP_20181009_0.txt'
     SetupSchemasTables(projFPN,prodDB,verbose)
-    BALLE
+    ERRORCHECK
     
     #Add sentinel tables - can be removed when rerunning the complete setup
     projFPN = 'doc/db_karttur_setup_sentinel_20180608_0.txt'
     SetupSchemasTables(projFPN,prodDB,verbose)
-    BALLE
+    ERRORCHECK
     
     #db_karttur_records_YYYYMMDD_0.txt is for setting the records for process management
     projFPN = 'doc/db_karttur_records_20180106_0.txt'
