@@ -1,0 +1,2 @@
+#modis_tile_regions_sql.xml adds default regions to the modis.region table
+xmlsql/modis_tile_regions_sql.xml

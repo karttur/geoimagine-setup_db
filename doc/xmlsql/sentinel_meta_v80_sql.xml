@@ -7,7 +7,7 @@
 	< NOT YET DONE
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_main'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid TEXT,
@@ -17,7 +17,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_sub'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid TEXT,
@@ -27,7 +27,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_geo'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid TEXT,
@@ -37,7 +37,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_url'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid TEXT,
@@ -49,7 +49,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_pixels'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid TEXT,
@@ -59,7 +59,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'meta_links'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sensor varchar(16),

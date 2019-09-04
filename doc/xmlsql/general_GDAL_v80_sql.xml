@@ -8,7 +8,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'celltypes'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			gdal varchar(8),
@@ -21,7 +21,7 @@
 
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'process' table = 'celltypes'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>gdal, arr, np, usgs</columns>
@@ -38,7 +38,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'gdalformat'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			hdr varchar(8),
@@ -50,7 +50,7 @@
 
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'process' table = 'gdalformat'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>hdr, dat, gdaldriver</columns>

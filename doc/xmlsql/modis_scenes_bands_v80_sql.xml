@@ -6,7 +6,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'datapooltiles'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			tileid character(26),
@@ -24,7 +24,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'tiles'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			tileid character(26),

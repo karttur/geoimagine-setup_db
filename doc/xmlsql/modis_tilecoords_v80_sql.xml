@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'tilecoords'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			hvtile char(6),
@@ -17,6 +17,11 @@
 			minysin double precision, 
 			maxxsin double precision, 
 			maxysin double precision,
+			
+			west double precision, 
+			south double precision, 
+			east double precision, 
+			north double precision,
 			
 			ullat double precision, 
 			ullon double precision, 

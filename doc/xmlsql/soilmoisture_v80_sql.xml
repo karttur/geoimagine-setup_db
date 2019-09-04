@@ -7,7 +7,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'datasets'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command> 
 			dsid TEXT NOT NULL,   
@@ -30,7 +30,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'networks'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command> 
 			networkid VARCHAR(32),
@@ -41,7 +41,7 @@
 		
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'stations'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -61,7 +61,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'daily05'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -74,7 +74,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'noon05'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -87,7 +87,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'morning05'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -100,7 +100,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'afternoon05'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -113,7 +113,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'evening05'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -126,7 +126,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'dailytop'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -139,7 +139,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'noontop'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -152,7 +152,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'morningtop'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -165,7 +165,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'afternoontop'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),
@@ -178,7 +178,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'soilmoisture' table = 'eveningtop'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			networkid VARCHAR(32),

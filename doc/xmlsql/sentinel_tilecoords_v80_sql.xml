@@ -2,9 +2,9 @@
 <sql>
 
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
-	
+
 	<!-- adds the table for Sentinel tile coordinates -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'tilecoords'></parameters>
 		<overwrite>N</overwrite>
@@ -17,11 +17,11 @@
 			datum TEXT,
 			utmzone integer,
 			mgrsid varchar(3),
-			
+
 			refsize real,
 			reflins integer,
 			refcols integer,
-			
+
 			ullat double precision,
 			ullon double precision,
 			urlat double precision,
@@ -31,25 +31,25 @@
 			lrlat double precision,
 			lrlon double precision,
 			centerlat double precision,
-			centerlon double precision, 
-			
+			centerlon double precision,
+
 			west double precision,
 			east double precision,
 			north  double precision,
-			south double precision,	
-			
+			south double precision,
+
 			minx double precision,
 			miny double precision,
 			maxx  double precision,
 			maxy  double precision,
 			centerx double precision,
-			centery double precision,		
+			centery double precision,
 			PRIMARY KEY (mgrs)
 		</command>
 	</process>
-	
+
 	<!-- adds the table for MGRS (original) tile coordinates -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'mgrscoords'></parameters>
 		<overwrite>N</overwrite>
@@ -59,14 +59,13 @@
 			west double precision,
 			east double precision,
 			north  double precision,
-			south double precision,	
+			south double precision,
 			minx double precision,
 			miny double precision,
 			maxx  double precision,
-			maxy  double precision,	
-			sentinel char(1),	
+			maxy  double precision,
+			sentinel char(1),
 			PRIMARY KEY (mgrs)
 		</command>
 	</process>
 </sql>
-

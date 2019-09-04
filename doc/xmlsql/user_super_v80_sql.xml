@@ -5,7 +5,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>userid,userpswd</columns>  
@@ -15,7 +15,7 @@
 	
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'inGenkangiSSa'
 			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
@@ -25,7 +25,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>userid,userpswd</columns>  
@@ -35,7 +35,7 @@
 	
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'anvaendarefixaren'
 			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
@@ -45,7 +45,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>userid,userpswd</columns>  
@@ -55,7 +55,7 @@
 	
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'karttur'
 			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
@@ -66,7 +66,7 @@
 	<!-- Insert the globe default region - needed for all other regions and for the super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'regioncats'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>regioncat,parentcat,stratum,title,label</columns>
@@ -76,7 +76,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'defregions'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>regioncat,regionid,regionname,parentid,title,label</columns>
@@ -87,7 +87,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'regions'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>regioncat, regionid, regiontype, epsg, ullat, ullon, urlat, urlon, lrlat, lrlon, lllat, lllon, minx, miny, maxx, maxy</columns>
@@ -98,7 +98,7 @@
 	<!-- Insert the tracts associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'regions' table = 'tracts'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>parentid,tractid,tractname,creator,owner, share</columns>
@@ -111,7 +111,7 @@
 	<!-- Insert the  projects associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'userprojects'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>projid,projname,owner,creator,share,title,label</columns>
@@ -124,7 +124,7 @@
 	<!-- Insert the links between tracts and projects associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'linkprojregion'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 		<columns>projid,regionid</columns>

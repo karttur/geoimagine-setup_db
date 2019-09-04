@@ -5,9 +5,9 @@
 	
 	<!-- installs the tables for landsat scenes, bands and masks -->
 	
-	<process processid ='createtable'>
+	<processx processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'scenes'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid character(21),
@@ -42,69 +42,490 @@
 			tgnote varchar(32) DEFAULT 'ok',
 			PRIMARY KEY (sceneid,source,proddate)
 		</command>
-	</process>
-
+	</processx>
+	
 	<process processid ='createtable'>
-		<parameters db = 'karttur' schema = 'landsat' table = 'scenesgeo'></parameters>
-		<overwrite>Y</overwrite>
+		<parameters db = 'karttur' schema = 'landsat' table = 'scenes'></parameters>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			sceneID character(21),
-			product TEXT,
-			reflins integer,
-			refcols integer,
-			projection character varying(32),
-			utmzone integer,
-			datum character varying(16),
-			esundist real,
-			sunzenith real,
-			sunazimuth real,
-			sunangleunits character varying(16),
-			ullat double precision,
-			ullon double precision,
-			lrlat double precision,
-			lrlon double precision,
-			minx double precision,
-			miny double precision,
-			maxx  double precision,
-			maxy  double precision,
-			west double precision,
-			east double precision,
-			north  double precision,
-			south double precision,			
-			PRIMARY KEY (sceneID,product)
+			lsatprodid varchar(64),
+			source varchar(8) NOT NULL,
+			product varchar(8) NOT NULL,  
+			acqdate date NOT NULL,
+			acqdatestr char(8) NOT NULL,
+			acqdoy smallint NOT NULL,
+			collnr integer NOT NULL,
+			collcat varchar(8) NOT NULL,
+			proccat varchar(16) NOT NULL,
+			wrs character(1) DEFAULT 2,
+			wrspath smallint NOT NULL,
+			wrsrow smallint NOT NULL,
+			downloaded character(1) DEFAULT 'N',
+			organized character(1) DEFAULT 'N',
+			exploded character(1) DEFAULT 'N',
+			reflcalmeta character(1) DEFAULT 'N',
+			emiscalmeta character(1) DEFAULT 'N',
+			atmcal character(1) DEFAULT 'N',
+			toarfi character(1) DEFAULT 'N',
+			srfi character(1) DEFAULT 'N',
+			rgbdn character(1) DEFAULT 'N',
+			rgbtoa character(1) DEFAULT 'N',
+			rgbsrfi character(1) DEFAULT 'N',
+			rgbtc character(1) DEFAULT 'N',
+			rgbdeveg character(1) DEFAULT 'N',
+			emissivity character(1) DEFAULT 'N',
+			redundant character(1) DEFAULT 'N',
+			deleted character(1) DEFAULT 'N',
+			metastatus character(1) DEFAULT 'N',
+			maskstatus character(1) DEFAULT 'N',
+			qamask character(1) DEFAULT 'N',
+			tgnote varchar(32) DEFAULT 'ok',
+			PRIMARY KEY (lsatprodid)
 		</command>
 	</process>
+	
+<!--
+		DROP TABLE landsat.scenes;
+		CREATE TABLE landsat.scenes (
+			lsatprodid varchar(64),
+			source varchar(8) NOT NULL,
+			product varchar(8) NOT NULL,  
+			acqdate date NOT NULL,
+			acqdatestr char(8) NOT NULL,
+			acqdoy smallint NOT NULL,
+			collnr integer NOT NULL,
+			collcat varchar(8) NOT NULL,
+			proccat varchar(16) NOT NULL,
+			wrs character(1) DEFAULT 2,
+			wrspath smallint NOT NULL,
+			wrsrow smallint NOT NULL,
+			downloaded character(1) DEFAULT 'N',
+			organized character(1) DEFAULT 'N',
+			exploded character(1) DEFAULT 'N',
+			reflcalmeta character(1) DEFAULT 'N',
+			emiscalmeta character(1) DEFAULT 'N',
+			atmcal character(1) DEFAULT 'N',
+			toarfi character(1) DEFAULT 'N',
+			srfi character(1) DEFAULT 'N',
+			rgbdn character(1) DEFAULT 'N',
+			rgbtoa character(1) DEFAULT 'N',
+			rgbsrfi character(1) DEFAULT 'N',
+			rgbtc character(1) DEFAULT 'N',
+			rgbdeveg character(1) DEFAULT 'N',
+			emissivity character(1) DEFAULT 'N',
+			redundant character(1) DEFAULT 'N',
+			deleted character(1) DEFAULT 'N',
+			metastatus character(1) DEFAULT 'N',
+			maskstatus character(1) DEFAULT 'N',
+			qamask character(1) DEFAULT 'N',
+			tgnote varchar(32) DEFAULT 'ok',
+			PRIMARY KEY (lsatprodid)
+		);
+		
+		ALTER TABLE landsat.scenes 
+		ADD COLUMN metastatus character(1) DEFAULT 'N';
+		ALTER TABLE landsat.scenes
+		ADD COLUMN rgb character(1) DEFAULT 'N';
+		
+		ALTER TABLE landsat.scenes
+		ADD COLUMN rgbdn character(1) DEFAULT 'N',
+		ADD COLUMN rgbtoa character(1) DEFAULT 'N',
+		ADD COLUMN rgbsrfi character(1) DEFAULT 'N',
+		ADD COLUMN rgbtc character(1) DEFAULT 'N',
+		ADD COLUMN rgbdeveg character(1) DEFAULT 'N';
+		
+		ALTER TABLE landsat.scenes
+		ADD COLUMN qamask character(1) DEFAULT 'N';
+-->
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'bands'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			sceneID character(21),  
-			bandfilename character varying(128),
-			shortname character varying(16),
-			longname character varying(64),
-			source char(3),
+			lsatprodid varchar(64),  
 			folder character varying(32),
 			band character varying(32),
 			prefix character varying(32),
-			product TEXT,
 			suffix character varying(32),
-			masked character (1) DEFAULT 'N',
-			defaultext character varying(8),
-			filecat character (1),
-			cellnull integer,
-			celltype character varying(8),
-			scalefac real,
-			offsetadd real,
-			dataunit character varying(32),
-			proddate date,
-			status character varying(16) DEFAULT 'unknown',
-			PRIMARY KEY (sceneID,band,product)
+			PRIMARY KEY (lsatprodid,folder,band,suffix)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.bands;
+		CREATE TABLE landsat.bands (
+			lsatprodid varchar(64),  
+			folder character varying(32),
+			band character varying(32),
+			prefix character varying(32),
+			suffix character varying(32),
+			PRIMARY KEY (lsatprodid,folder,band,suffix)
+		);
+		
+		alter table landsat.bands drop constraint bands_pkey;
+		alter table landsat.bands add constraint bands_pkey primary key (lsatprodid,folder,band,suffix);
+-->
+
+
+
+    
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'dnreflcal'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),  
+			band character varying(32),
+			reflmax float,
+    		reflmin float,
+    		radmax float,
+    		radmin float,
+    		qclmax float,
+    		qclmin float,
+    		radgain float,
+    		radbias float,
+    		reflgain float,
+    		reflbias float,	
+			PRIMARY KEY (lsatprodid,band)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.dnreflcal;
+		CREATE TABLE landsat.dnreflcal (
+			lsatprodid varchar(64),  
+			band character varying(32),
+			reflmax float,
+    		reflmin float,
+    		radmax float,
+    		radmin float,
+    		qclmax float,
+    		qclmin float,
+    		radgain float,
+    		radbias float,
+    		reflgain float,
+    		reflbias float,	
+			PRIMARY KEY (lsatprodid,band)
+		);
+-->
+
+<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'banddos'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),  
+			band character varying(32),
+			method char(2) DEFAULT 'rl',
+			minhisto int,
+    		maxhisto int,
+    		he float,
+    		dnhelo int,
+    		dnhehi int,
+    		dosdn int,
+    		dospath float,
+    		chavezdn int,
+    		chavezpath float,
+    		parisdn int,
+    		parispath float,
+    		rlfitdn int,
+    		rlfitpath float,
+    		multifitdn int,
+    		multifitpath float,
+			PRIMARY KEY (lsatprodid,band,method)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.banddos;
+		CREATE TABLE landsat.banddos (
+			lsatprodid varchar(64),  
+			band character varying(32),
+			method char(2) DEFAULT 'rl',
+			minhisto int,
+    		maxhisto int,
+    		he float,
+    		dnhelo int,
+    		dnhehi int,
+    		dosdn int,
+    		dospath float,
+    		chavezdn int,
+    		chavezpath float,
+    		parisdn int,
+    		parispath float,
+    		rlfitdn int,
+    		rlfitpath float,
+    		multifitdn int,
+    		multifitpath float,
+			PRIMARY KEY (lsatprodid,band,method)
+		);
+-->
+	
+<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'scenedos'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),
+			method char(2) DEFAULT 'rl',  
+    		rlp float,
+    		rlp2 float,
+    		multip float,
+    		multip2 float,
+			PRIMARY KEY (lsatprodid,method)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.scenedos;
+		CREATE TABLE landsat.scenedos (
+			lsatprodid varchar(64),
+			method char(2) DEFAULT 'rl',  
+    		rlp float,
+    		rlp2 float,
+    		multip float,
+    		multip2 float,
+			PRIMARY KEY (lsatprodid,method)
+		);
+-->
+
+bl {'band': 'bl',    'srfpath': 0.060892186294314705, 'dnpath': 37}
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'dnemiscal'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),  
+			band character varying(32),
+    		radmax float,
+    		radmin float,
+    		qclmax float,
+    		qclmin float,
+    		radgain float,
+    		radbias float,
+    		k1 float,
+    		k2 float,	
+			PRIMARY KEY (lsatprodid,band)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.dnemiscal;
+		CREATE TABLE landsat.dnemiscal (
+			lsatprodid varchar(64),  
+			band character varying(32),
+    		radmax float,
+    		radmin float,
+    		qclmax float,
+    		qclmin float,
+    		radgain float,
+    		radbias float,
+    		k1 float,
+    		k2 float,	
+			PRIMARY KEY (lsatprodid,band)
+		);
+-->
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'imgattr'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),  
+			cloudcov float,
+    		cloudcovland float,
+    		sunazim float,
+    		rsunelev float,
+    		esdist float,
+    		geormse float,	
+			PRIMARY KEY (lsatprodid)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.imgattr;
+		CREATE TABLE landsat.imgattr (
+			lsatprodid varchar(64),  
+			cloudcov float,
+    		cloudcovland float,
+    		sunazim float,
+    		sunelev float,
+    		esdist float,
+    		geormse float,	
+			PRIMARY KEY (lsatprodid)
+		);
+-->
+
+
+
+
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'wavelengths'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			source varchar(8),  
+			band character varying(32),
+			wlmax float,
+    		wlmin float,
+    		wlcenter float,
+    		esun float,	
+			PRIMARY KEY (source,band)
+		</command>
+	</process>
+
+<!--
+		DROP TABLE landsat.wavelengths;
+		CREATE TABLE landsat.wavelengths (
+			source varchar(8),  
+			band character varying(32),
+			wlmax float,
+    		wlmin float,
+    		wlcenter float,
+    		esun float,	
+			PRIMARY KEY (source,band)
+		);
+		
+	INSERT INTO landsat.wavelengths (source, band, wlmax, wlmin, wlcenter,esun) VALUES
+	('LT04','bl',0.452,0.518,0.485,1983),
+	('LT04','gl',0.529,0.609,0.5685,1795),
+	('LT04','rl',0.624,0.693,0.6595,1539),
+	('LT04','na',0.776,0.905,0.841,1028),
+	('LT04','mb',1.568,1.784,1.6756,219.8),
+	('LT04','mc',2.097,2.347,2.222,83.49),
+	('LT04','ta',10.42,11.66,11.050,0),
+
+	('LT05','bl',0.452,0.518,0.485,1983),
+	('LT05','gl',0.528,0.609,0.5685,1796),
+	('LT05','rl',0.626,0.693,0.6595,1536),
+	('LT05','na',0.776,0.904,0.84,1031),
+	('LT05','mb',1.567,1.784,1.6755,220.0),
+	('LT05','mc',2.097,2.349,2.223,83.4),
+	('LT05','ta',10.45,12.42,11.435,0),
+		
+	('LE07','bl',0.452,0.514,0.483,1997),
+	('LE07','gl',0.519,0.601,0.56,1812),
+	('LE07','rl',0.631,0.692,0.6615,1533),
+	('LE07','na',0.775,0.898,0.8350,1039),
+	('LE07','mb',1.547,1.748,1.6475,230.8),
+	('LE07','mc',2.065,2.346,2.2055,84.9),
+	('LE07','bw',0.525,0.896,0.706,1362),
+	
+	('LC08','bc',0.43,0.45,0.44,2100),
+	('LC08','bl',0.45,0.51,0.480,2067),
+	('LC08','gl',0.53,0.59,0.56,1893),
+	('LC08','rl',0.64,0.67,0.655,1603),
+	('LC08','na',0.85,0.88,0.865,972.6),
+	('LC08','mb',1.57,1.65,1.61,245.0),
+	('LC08','mc',2.11,2.29,2.20,79.72),
+	('LC08','bw',0.50,0.68,0.59,1700),
+	('LC08','cc',1.36,1.38,1.37,399.7),
+	('LC08','ta',10.60,11.19,10.90,0),
+	('LC08','tb',11.50,12.51,12.0,0);
+	
+	-->
+		
+<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'paris'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			source varchar(8),  
+			band character varying(32),
+			wlmax float,
+    		wlmin float,
+    		wlcenter float,
+    		esun float,	
+			PRIMARY KEY (source,band)
 		</command>
 	</process>
 
 
+<!--
+		DROP TABLE landsat.paris;
+		CREATE TABLE landsat.paris (
+			source varchar(8),  
+			band character varying(32),
+			version varchar(16),
+			sk float,
+			dnb float,
+			PRIMARY KEY (source,band,version)
+		);
+		
+	INSERT INTO landsat.paris (source, band, version, sk, dnb ) VALUES
+
+	('LT05','pre20030504','bl',0.60243,2.52),
+	('LT05','pre20030504','gl',1.17510,2.42),
+	('LT05','pre20030504','rl',0.80576,1.45),
+	('LT05','pre20030504','na',0.81455,1.85),
+	('LT05','pre20030504','mb',0.10808,3.42),
+	('LT05','pre20030504','mc',0.05698,2.63),
 	
+	('LT05','post20030504','bl',0.76282,1.99),
+	('LT05','post20030504','gl',1.44251,1.97),
+	('LT05','post20030504','rl',1.03988,1.13),
+	('LT05','post20030504','na',0.87259,1.73),
+	('LT05','post20030504','mb',0.11988,3.09),
+	('LT05','post20030504','mc',0.06529,2.30),
+
+	('LE07','bl',0.452,0.514,0.483,1997),
+	('LE07','gl',0.519,0.601,0.56,1812),
+	('LE07','rl',0.631,0.692,0.6615,1533),
+	('LE07','na',0.775,0.898,0.8350,1039),
+	('LE07','mb',1.547,1.748,1.6475,230.8),
+	('LE07','mc',2.065,2.346,2.2055,84.9),
+	('LE07','bw',0.525,0.896,0.706,1362),
+	
+	('LC08','bc',0.43,0.45,0.44,2100),
+	('LC08','bl',0.45,0.51,0.480,2067),
+	('LC08','gl',0.53,0.59,0.56,1893),
+	('LC08','rl',0.64,0.67,0.655,1603),
+	('LC08','na',0.85,0.88,0.865,972.6),
+	('LC08','mb',1.57,1.65,1.61,245.0),
+	('LC08','mc',2.11,2.29,2.20,79.72),
+	('LC08','bw',0.50,0.68,0.59,1700),
+	('LC08','cc',1.36,1.38,1.37,399.7),
+	('LC08','ta',10.60,11.19,10.90,0),
+	('LC08','tb',11.50,12.51,12.0,0);
+	
+	-->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'dossrfi'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			lsatprodid varchar(64),  
+			suffix varchar(32),
+    		proddate date,
+    		pvalue float,
+    		pcode varchar(16),
+    		doscode varchar(16),
+    		icrl float,
+    		msfac float,
+    		method char(2),	
+			PRIMARY KEY (lsatprodid,suffix)
+		</command>
+	</process>	
+	<!--
+		DROP TABLE landsat.dossrfi;
+		CREATE TABLE landsat.dossrfi (
+			lsatprodid varchar(64),  
+			suffix varchar(32),
+    		proddate date,
+    		pvalue float,
+    		pcode varchar(16),
+    		doscode varchar(16),
+    		icrl float,
+    		msfac float,
+    		method char(2),	
+			PRIMARY KEY (lsatprodid,suffix)
+		);
+		-->
 </sql>

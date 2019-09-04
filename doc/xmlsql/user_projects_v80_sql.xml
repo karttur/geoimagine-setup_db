@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'userprojects'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigserial,
@@ -26,7 +26,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projlevels'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command> 
 			projlevel TEXT,
@@ -38,7 +38,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projlevels'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command> 
 			<columns>projlevel,title,label</columns>
@@ -52,7 +52,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projtypes'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			projid TEXT, 
@@ -64,7 +64,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projtypes'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>projid,projlevel,title</columns>
@@ -82,7 +82,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projkeywords'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			projid TEXT,
@@ -93,7 +93,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projsensors'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			projid TEXT,
@@ -104,7 +104,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'projancil'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			projid TEXT,
@@ -115,7 +115,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'linkprojregion'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			projid TEXT,

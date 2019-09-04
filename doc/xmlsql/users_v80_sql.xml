@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigserial,
@@ -41,7 +41,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'organisations'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			instid TEXT,
@@ -64,7 +64,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'themeids'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			themeid INTEGER NOT NULL,
@@ -77,7 +77,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'usercats'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			usercat varchar(8),
@@ -111,7 +111,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'usercats'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>usercat,stratum,title,label,maxdefregion,maxtracts,maxsites,maxsamples,maxscenes,modelcal,

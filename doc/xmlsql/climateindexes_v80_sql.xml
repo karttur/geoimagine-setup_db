@@ -21,7 +21,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'climateindex' table = 'indexmeta'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			index TEXT NOT NULL,

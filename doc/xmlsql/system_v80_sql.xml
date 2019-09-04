@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'regioncats'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			stratum smallint,
@@ -21,7 +21,7 @@
 		
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'defregions'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			regioncat varchar(32) NOT NULL, 											
@@ -39,7 +39,7 @@
 	<!-- The spatial extents of all kinds of regions, whethher default, tract or site is in the table region-->
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'regions'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			regioncat TEXT,
@@ -66,7 +66,7 @@
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'regionswrs'></parameters>
 		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			regionid TEXT,
@@ -83,7 +83,7 @@
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'regionsmodis'></parameters>
 		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			regionid TEXT,

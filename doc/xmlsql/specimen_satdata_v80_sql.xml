@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'scene'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			imageid bigserial,	
@@ -15,7 +15,7 @@
 			source TEXT NOT NULL,	
 			product TEXT,
 			folder TEXT,
-			acqdatestr varchar(17),
+			acqdatestr varchar(20),
 			acqdate date,
 			path smallint,
 			row smallint,
@@ -27,7 +27,7 @@
 	<!-- sceneplot-->
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'sceneplot'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			imageid bigint,
@@ -41,7 +41,7 @@
 	<!-- pointsrfi-->
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'ptsrfi'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			imageid bigint,
@@ -55,7 +55,7 @@
 	<!-- plotsrfi-->
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'plotsrfi'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			imageid bigint,
@@ -69,7 +69,7 @@
 	<!-- kernelsrfi-->
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'kernelsrfi'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			imageid bigint,

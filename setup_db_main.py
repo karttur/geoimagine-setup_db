@@ -29,7 +29,6 @@ def SetUpProdDb(prodDB):
     iniSession.cursor.execute("SELECT current_database()")
     #Get the results from the SELECT statement
     record = iniSession.cursor.fetchone()
-    print (record)
     #Print Current (cluster) db
     print ('Current database', record[0])
     #Select the logged in user
@@ -84,58 +83,41 @@ def SetupSchemasTables(projFPN,db,verbose):
     session._Close()
         
 if __name__ == "__main__":
+    
     prodDB = 'postgres'
- 
+    verbose = True
+    
     '''
     This module should only be run at the very startup of building the Karttur Geo Imagine framework.
     To run, remove the comment "#prodDB" and set the name of your production DB ("YourProdDB")
     '''
-    #prodDB = 'YourProdDB'
+    #prodDB = 'YourProdDB' #'postgres
 
     '''SetUpProdDb creates an empty Postgres database under the cluster postgres with the name "YourProdDB".'''
     #SetUpProdDb(prodDB)
+  
     '''
     SetupSchemasTables creates schemas and tables from xml files, with the relative path to the
     xml files given in the plain text file "projFPN".
     '''
-    
-    verbose = True
-    projFPN = 'doc/db_karttur_setup_20180106_0.txt'
+    #projFPN = 'doc/db_karttur_setup_20181116.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
+    
+    '''
+    #db_karttur_dbusers_YYYYMMDDX.xml adds db users for handling connections to postgres db
+    '''
+    #projFPN = 'doc/db_karttur_dbusers_20181116.txt'
+    #SetupSchemasTables(projFPN,prodDB,verbose)
+    
+    '''
+    #db_karttur_modregions_20181116.txt adds global default tiles to modis.region
+    '''
+    projFPN = 'doc/db_karttur_modregions_20181116.txt'
+    SetupSchemasTables(projFPN,prodDB,verbose)
+    
 
-    #Add climate index tables - can be removed when rerunning the complete setup
-    projFPN = 'doc/db_karttur_setup_climateindexes_20180418_0.txt'
-    #SetupSchemasTables(projFPN,prodDB,verbose)
     
-    #Add soilmoisture tables - can be removed when rerunning the complete setup
-    projFPN = 'doc/db_karttur_setup_soilmoisture_20180629_0.txt'
-    #SetupSchemasTables(projFPN,prodDB,verbose)
-    #ERRORCHECK
+
     
-    #Add landsat tables - can be removed when rerunning the complete setup
-    projFPN = 'doc/db_karttur_setup_landsat_20181007_0.txt'
-    #SetupSchemasTables(projFPN,prodDB,verbose)
-    #ERRORCHECK
     
-    #Add system region tables - i.e. the tables that link system specific locus to default regions
-    projFPN = 'doc/db_karttur_setup_systemregions_20181005_0.txt'
-    #SetupSchemasTables(projFPN,prodDB,verbose)
-    #ERRORCHECK
-    
-    #Add smap tables - can be removed when rerunning the complete setup
-    projFPN = 'doc/db_karttur_setup_SMAP_20181009_0.txt'
-    SetupSchemasTables(projFPN,prodDB,verbose)
-    ERRORCHECK
-    
-    #Add sentinel tables - can be removed when rerunning the complete setup
-    projFPN = 'doc/db_karttur_setup_sentinel_20180608_0.txt'
-    SetupSchemasTables(projFPN,prodDB,verbose)
-    ERRORCHECK
-    
-    #db_karttur_records_YYYYMMDD_0.txt is for setting the records for process management
-    projFPN = 'doc/db_karttur_records_20180106_0.txt'
-    SetupSchemasTables(projFPN,prodDB,verbose)
-    
-    #general_dbusers_vXX_sql.xml adds db users for handling connections to postgres db
-    projFPN = 'doc/db_karttur_dbusers_20180106_0.txt'
-    SetupSchemasTables(projFPN,prodDB,verbose)
+

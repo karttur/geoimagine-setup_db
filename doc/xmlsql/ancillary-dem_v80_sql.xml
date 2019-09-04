@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sql>
+
+	<!-- SQL xml read by geomimagine subpackage db_setup -->
+		
+	<!-- installs the table that defines ancillary DEM data sources -->
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'ancillary' table = 'srtmdptiles'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			tileid character(26),
+			tilefilename character varying(128),
+			source character varying(32) DEFAULT 'SRTM', 
+			product varchar(24), 
+			version character(3),
+			north smallint,
+			south smallint,
+			east smallint,
+			west smallint,
+			lltile char(7),
+			downloaded DEFAULT 'N',
+			organized DEFAULT 'N',
+			exploded DEFAULT 'N',
+			PRIMARY KEY (tileid,product,version)
+		</command>
+	</process>
+	
+	<!--
+		DROP TABLE ancillary.srtmdptiles;
+		CREATE TABLE ancillary.srtmdptiles (
+			tileid character(26),
+			tilefilename character varying(128),
+			source character varying(32) DEFAULT 'SRTM', 
+			product varchar(24), 
+			version character(3),
+			north smallint,
+			south smallint,
+			east smallint,
+			west smallint,
+			lltile char(7),
+			downloaded char(1) DEFAULT 'N',
+			organized char(1) DEFAULT 'N',
+			exploded char(1) DEFAULT 'N',
+
+			PRIMARY KEY (tileid,product,version)
+		);S56W072
+		-->
+	
+</sql>	 

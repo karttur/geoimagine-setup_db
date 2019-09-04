@@ -7,7 +7,7 @@
 		
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'datasets'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command> 
 			dsid TEXT NOT NULL,
@@ -29,7 +29,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'dslayers'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 		dsid TEXT,
@@ -45,7 +45,7 @@
 		
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'authors'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			instid TEXT,

@@ -36,7 +36,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'granuletiles'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			granuleid TEXT,

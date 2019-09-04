@@ -7,14 +7,14 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'scene'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigserial,	
 			sceneID TEXT NOT NULL,	
 			source TEXT NOT NULL,	
 			product TEXT,
-			acqdatestr varchar(17),
+			acqdatestr varchar(20),
 			acqdate date,
 			path smallint,
 			row smallint,
@@ -29,7 +29,7 @@
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'soilsearch'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,	
@@ -51,7 +51,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'vegsearch'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,			
@@ -69,7 +69,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'soilline'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,			
@@ -85,7 +85,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'trimming'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,			
@@ -98,7 +98,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'endmembers'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,	
@@ -113,7 +113,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'emsampling'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,	
@@ -137,7 +137,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'endmember' table = 'eigenvectors'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			id bigint,	

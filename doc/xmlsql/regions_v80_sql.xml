@@ -3,37 +3,6 @@
 
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
 	
-	<!-- installs the table that hold regions -->
-	
-	<!-- Table moved to schema system -->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'regioncats'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			stratum smallint,
-			regioncat TEXT,
-			parentcat varchar(32),
-			title varchar(128),
-			label varchar(255),
-			PRIMARY KEY (regioncat,stratum)
-		</command>
-	</processx>
-		
-	<!-- Table moved to schema system -->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'defregions'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			regioncat varchar(32) NOT NULL, 											
-			regionid varchar(32),
-			regionname varchar(64),
-			parentid varchar(32) NOT NULL,
-			PRIMARY KEY (regioncat,regionid)
-		</command>
-	</processx>
-	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'regions' table = 'tracts'></parameters>
 		<overwrite>N</overwrite>
@@ -42,6 +11,8 @@
 			parentid TEXT NOT NULL,
 			tractid TEXT,
 			tractname varchar(64),
+			regiontype char(1),
+			
 			creator varchar(32),
 			owner varchar(32),
  			title varchar(64),
@@ -52,6 +23,27 @@
 		</command>
 	</process>
 	
+	<!--
+		
+	ALTER TABLE regions.tracts
+	ADD COLUMN regiontype char(1);
+	-->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'regions' table = 'defregions'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			regioncat varchar(32) NOT NULL, 											
+			regionid varchar(32),
+			regionname varchar(64),
+			parentid varchar(32) NOT NULL,
+			title TEXT,
+  			label TEXT,
+			PRIMARY KEY (regioncat,regionid)
+		</command>
+	</process>
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'regions' table = 'sites'></parameters>
 		<overwrite>N</overwrite>
@@ -94,71 +86,5 @@
   			PRIMARY KEY (regionid)
 		</command>
 	</process>
-	
-	<!-- link all landsat wrs falling inside regions-->
-	<!-- Table moved to schema landsat-->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'regionswrs'></parameters>
-		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>N</overwrite>
-		<delete>Y</delete>
-		<command>
-			regionid TEXT,
-			regiontype char(1),
- 			wrs char(1),
- 			ascdesc char(1) DEFAULT 'D',
- 			path smallint,
- 			row smallint,
-  			PRIMARY KEY (regionid,wrs,path,row,ascdesc)
-		</command>
-	</processx>
-	
-	<!-- link all modis tiles falling inside regions-->
-	<!-- Table moved to schema modis-->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'regionsmodis'></parameters>
-		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>N</overwrite>
-		<delete>Y</delete>
-		<command>
-			regionid TEXT,
-			regiontype char(1),
- 			path smallint,
- 			row smallint,
-  			PRIMARY KEY (regionid,path,row)
-		</command>
-	</processx>
-	
-	<!-- link all mgrs tiles falling inside regions-->
-	<!-- Table moved to schema sentinel-->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'regionsmgrs'></parameters>
-		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>N</overwrite>
-		<delete>Y</delete>
-		<command>
-			regionid TEXT,
-			regiontype char(1),
- 			mgrs char(5),
-  			PRIMARY KEY (regionid,mgrs)
-		</command>
-	</processx>
-	
-	<!-- link all sentinel tiles falling inside regions-->
-	<!-- Table moved to schema sentinel-->
-	<processx processid ='createtable'>
-		<parameters db = 'karttur' schema = 'regions' table = 'sentinel'></parameters>
-		<!-- This is the most lengthy setup, avoid deleting-->
-		<overwrite>N</overwrite>
-		<delete>Y</delete>
-		<command>
-			regionid TEXT,
-			regiontype char(1),
- 			path char(3),
- 			row char(3),
-  			PRIMARY KEY (regionid,path,row)
-		</command>
-	</processx>
-
-	
+		
 </sql>

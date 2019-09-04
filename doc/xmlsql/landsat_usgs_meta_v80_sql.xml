@@ -7,69 +7,131 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'meta_main'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
+			id SERIAL PRIMARY KEY,
 			sceneid character(21),
-			PRIMARY KEY (sceneid)
+			copyfile varchar(32)
 		</command>
 	</process>
+	<!--
+	DROP TABLE landsat.meta_main;
+	CREATE TABLE landsat.meta_main (
+			id SERIAL PRIMARY KEY,
+			sceneid character(21),
+			copyfile varchar(32)
+	);
+	-->
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'meta_sub'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
+			id SERIAL PRIMARY KEY,
 			sceneid character(21),
-			PRIMARY KEY (sceneid)
+			copyfile varchar(32)
 		</command>
 	</process>
+	<!--
+	DROP TABLE landsat.meta_sub;
+	CREATE TABLE landsat.meta_sub (
+			id SERIAL PRIMARY KEY,
+			sceneid character(21),
+			copyfile varchar(32)
+	);
+	-->
+	
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'landsat' table = 'meta_coll'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			id SERIAL PRIMARY KEY,
+			sceneid character(21),
+			copyfile varchar(32)
+		</command>
+	</process>
+	<!--
+	DROP TABLE landsat.meta_coll;
+	CREATE TABLE landsat.meta_coll (
+			id SERIAL PRIMARY KEY,
+			sceneid character(21),
+			copyfile varchar(32)
+	);
+	-->
+	
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'meta_geo'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
+			id SERIAL PRIMARY KEY,
 			sceneid character(21),
-			PRIMARY KEY (sceneid)
+			copyfile varchar(32)
 		</command>
 	</process>
+	<!--
+	DROP TABLE landsat.meta_geo;
+	CREATE TABLE landsat.meta_geo (
+			id SERIAL PRIMARY KEY,
+			sceneid character(21),
+			copyfile varchar(32)
+	);
+	-->
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'meta_url'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
+			id SERIAL PRIMARY KEY,
 			sceneid character(21),
-			PRIMARY KEY (sceneid)
+			copyfile varchar(32)
 		</command>
 	</process>
-
+	<!--
+	DROP TABLE landsat.meta_url;
+	CREATE TABLE landsat.meta_url (
+			id SERIAL PRIMARY KEY,
+			sceneid character(21)
+			copyfile varchar(32)
+	);
+	-->
+	
 	<process processid ='createtable'>
-		<parameters db = 'karttur' schema = 'landsat' table = 'meta_update'></parameters>
-		<overwrite>Y</overwrite>
+		<parameters db = 'karttur' schema = 'landsat' table = 'meta_status'></parameters>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sceneid character(21),
-			regdate date default CURRENT_DATE,
-			update date,
-			PRIMARY KEY (sceneid, regdate, update)
+			collection smallint,
+			tier char(2),
+			downloaded char(1),
+			organized char(1),
+			explolded char(1),
+			PRIMARY KEY (sceneid,collection,tier)
 		</command>
 	</process>
+	<!--
+	DROP TABLE landsat.meta_status;
+	CREATE TABLE landsat.meta_status (
+			sceneid character(21),
+			collection smallint,
+			tier char(2),
+			downloaded char(1),
+			organized char(1),
+			explolded char(1),
+			PRIMARY KEY (sceneid,collection,tier)
+	);
+	-->
 
-	<process processid ='createtable'>
-		<parameters db = 'karttur' schema = 'landsat' table = 'meta_pixels'></parameters>
-		<overwrite>Y</overwrite>
-		<delete>N</delete>
-		<command>
-			sceneid character(21),
-			PRIMARY KEY (sceneid)
-		</command>
-	</process>
 
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'meta_links'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			sensor varchar(16),
@@ -85,32 +147,26 @@
 			PRIMARY KEY (sensor,metacolumn)
 		</command>
 	</process>
-	
+		
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'usgs_bulkmeta'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			sensat char(3),
-			sensor varchar(8),
+			collection varchar(16),
+			level smallint,
+			sensor varchar(16),
 			label varchar(255),
-			startdate date,
-			enddate date,
-			startyear smallint,
-			endyear smallint,
-			collection char(2),
 			xmlurl varchar(255),
-			csvgzurl TEXT,
-			xmllocal varchar(32),
-			csvlocal varchar(32),
+			csvurl varchar(255),
 			latestdate date,
-			PRIMARY KEY (sensat,startdate,collection)
+			PRIMARY KEY (collection,level,sensor)
 		</command>
-	</process>
+	</process>    
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'qorder'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			code varchar(16),
@@ -121,7 +177,7 @@
 	
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'qorder'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>code,rank</columns>
@@ -145,4 +201,23 @@
 			<values>'T4',5</values>
 		</command>
 	</process>
+	
+<!--
+DROP TABLE layout.legend;
+CREATE TABLE landsat.usgs_bulkmeta (
+			collection varchar(16),
+			level smallint,
+			sensor varchar(16),
+			label varchar(255),
+			xmlurl varchar(255),
+			csvurl varchar(255),
+			latestdate date,
+			PRIMARY KEY (collection,level,sensor)
+);
+
+CREATE TABLE landsat.meta_coll (
+			sceneid character(21),
+			PRIMARY KEY (sceneid)
+);
+-->
 </sql>

@@ -7,7 +7,7 @@
     
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'prcesschain'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			chainid TEXT,
@@ -21,7 +21,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chainprocess'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			chainid TEXT,
@@ -34,7 +34,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chaincompin'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			chainid TEXT,
@@ -47,7 +47,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chainparams'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			chainid TEXT,
@@ -60,7 +60,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chaincompout'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			chainid TEXT,

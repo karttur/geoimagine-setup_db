@@ -10,7 +10,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'smaptemplate'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			dataid character(26),
@@ -29,7 +29,7 @@
 	<process processid ='tableinsert'>
 		https://n5eil01u.ecs.nsidc.org/SMAP/SPL3SMA.003/
 		<parameters db = 'karttur' schema = 'smap' table = 'smaptemplate'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			<columns>dataid, version, startdate, enddate, resolkm, temporal, label, url, tgcomment</columns>
@@ -51,7 +51,32 @@
 			<values>'SPL4SMLM', 4, '2015-03-31', '2100-01-01', 9, 'static', 'SMAP L4 Global 9 km EASE-Grid Surface and Root Zone Soil Moisture Land Model Constants', 'https://nsidc.org/data/SPL4SMLM/versions/4','skip for now'</values>
 		</command>
 	</process>
+	<!-- smap data -->
 	
+
+	<process processid ='createtable'>
+		<parameters db = 'karttur' schema = 'smap' table = 'daacdata'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
+			smapid varchar(64),
+			smapfilename character varying(128),
+			source character varying(32),
+			product varchar(24), 
+			version character(3),
+			acqdate date,
+			doy smallint,
+			folder varchar(16) DEFAULT 'original',
+			downloaded character(1) DEFAULT 'N',
+			organized character(1) DEFAULT 'N',
+			exploded character(1) DEFAULT 'N',
+			redundant character(1) DEFAULT 'N',
+			deleted character(1) DEFAULT 'N',
+			maskstatus character(1) DEFAULT 'Y',
+			PRIMARY KEY (smapid,product,version)
+			
+		</command>
+	</process>
 		
 	<!-- smap compositions-->
 	
@@ -76,7 +101,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'compprod'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>			
 			compid TEXT,
@@ -88,25 +113,26 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),			
+			label varchar(255),		
+			frequency varchar(20),	
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'layers'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>			
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
 			suffix varchar(64),
-			acqdatestr varchar(17),
+			acqdatestr varchar(20),
 			acqdate date,
 			doy smallint,
 			createdate date DEFAULT CURRENT_DATE,
-			region varchar(16) DEFAULT 'global',
+			regionid varchar(16) DEFAULT 'global',
 			PRIMARY KEY (compid,source,product,suffix,acqdatestr)
 		</command>
 	</process>

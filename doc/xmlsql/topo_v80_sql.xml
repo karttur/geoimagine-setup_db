@@ -7,7 +7,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'topography' table = 'plot'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			plotid bigserial,
@@ -24,7 +24,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'topography' table = 'plotwrs'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			plotid bigint,
@@ -38,7 +38,7 @@
 	
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'topography' table = 'plotmodtile'></parameters>
-		<overwrite>Y</overwrite>
+		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			plotid bigint,
