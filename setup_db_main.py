@@ -86,7 +86,6 @@ if __name__ == "__main__":
     
     prodDB = 'postgres'
     verbose = True
-    
     '''
     This module should only be run at the very startup of building the Karttur Geo Imagine framework.
     To run, remove the comment "#prodDB" and set the name of your production DB ("YourProdDB")
