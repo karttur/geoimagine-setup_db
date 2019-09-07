@@ -6,7 +6,7 @@ Karttur Geoimagine database setup python project
 
 Karttur's GeoImagine Framework is an attempt for semi-automated processing of spatial data. 
 The database setup (setup_db) package contains the processing for 
-settind up the complete postgreSQL database. 
+setting up the Framework postgreSQL database. It contains 4 python (**.py**) modules:
 
 
 - \_\_init.py\_\_
