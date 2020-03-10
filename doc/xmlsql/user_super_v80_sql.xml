@@ -1,68 +1,68 @@
 <?xml version='1.0' encoding='utf-8'?>
 <sql>
-	
+
 	<!-- adds the superusers of the system -->
-	
+
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			<columns>userid,userpswd</columns>  
-			<values>'inGenkangiSSa','jfeo-P9hy4-Oinv-'</values>
+			<columns>userid,userpswd</columns>
+			<values>'inGenkangiSSa','abc'</values>
 		</command>
 	</process>
-	
+
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'inGenkangiSSa'
-			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
-			<values>'super', 10, 'Karttur AB', '+46725140003', 'SE','thomas.gumbricht@gmail.com','thomasg@karttur.com'</values>
+			<columns>usercat, stratum</columns>
+			<values>'super', 10</values>
 		</command>
 	</process>
-	
+
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			<columns>userid,userpswd</columns>  
-			<values>'anvaendarefixaren', 'kjuuY8-O8--oiTu6-Zf'</values>
+			<columns>userid,userpswd</columns>
+			<values>'anvaendarefixaren', 'abc'</values>
 		</command>
 	</process>
-	
+
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'anvaendarefixaren'
-			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
-			<values> 'userfix', 9, 'Karttur AB', '+46725140003', 'se','thomas.gumbricht@gmail.com','userfix@karttur.com'</values>	
+			<columns>usercat, stratum</columns>
+			<values> 'userfix', 9</values>
 		</command>
-	</process>	
-	
+	</process>
+
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			<columns>userid,userpswd</columns>  
-			<values>'karttur', 'weg-iK8-tng-w9k'</values>
+			<columns>userid,userpswd</columns>
+			<values>'karttur', 'abc'</values>
 		</command>
 	</process>
-	
+
 	<process processid ='tableupdate'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'users'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>WHERE userid = 'karttur'
-			<columns>usercat, stratum, organization, mobile, country, email1, email2</columns>  
-			<values> 'super', '10','Karttur AB', '+46725140003', 'se', 'thomas.gumbricht@gmail.com', 'thomas@karttur.com'</values>	
+			<columns>usercat, stratum</columns>
+			<values> 'super', '10'</values>
 		</command>
 	</process>
-	
+
 	<!-- Insert the globe default region - needed for all other regions and for the super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'regioncats'></parameters>
@@ -73,7 +73,7 @@
 			<values>'globe','self','0','The entire Earth','Stratum 0 (global) only has a single region - the entire Earth globe'</values>
 		</command>
 	</process>
-	
+
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'defregions'></parameters>
 		<overwrite>N</overwrite>
@@ -84,7 +84,7 @@
 
 		</command>
 	</process>
-	
+
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'system' table = 'regions'></parameters>
 		<overwrite>N</overwrite>
@@ -94,7 +94,7 @@
 			<values>'globe','globe','D','4326','90','-180','90','180','-90','180','-90','-180','-180','-90','180','90'</values>
 		</command>
 	</process>
-	
+
 	<!-- Insert the tracts associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'regions' table = 'tracts'></parameters>
@@ -107,7 +107,7 @@
 			<values>'global','globalusers','Global','anvaendarefixaren','anvaendarefixaren',0</values>
 		</command>
 	</process>
-	
+
 	<!-- Insert the  projects associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'userprojects'></parameters>
@@ -120,7 +120,7 @@
 			<values>'karttur','karttur','karttur','karttur','0','karttur super user','karttur super user access'</values>
 		</command>
 	</process>
-	
+
 	<!-- Insert the links between tracts and projects associated with the three super users-->
 	<process processid ='tableinsert'>
 		<parameters db = 'karttur' schema = 'userlocale' table = 'linkprojregion'></parameters>
@@ -133,5 +133,5 @@
 			<values>'globalusers','userfixer'</values>
 		</command>
 	</process>
-	
+
 </sql>

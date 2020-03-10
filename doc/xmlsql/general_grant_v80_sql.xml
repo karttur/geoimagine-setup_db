@@ -5,218 +5,218 @@
 	<!-- GRANTS rights to various db users -->
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='processread' pswd='jii8ubise'></parameters>
-		<overwrite>N</overwrite>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
+		<overwrite>Y</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA process TO processread;
-			GRANT SELECT ON ALL TABLES IN SCHEMA process TO processread;
-			GRANT USAGE ON SCHEMA regions TO processread;
-			GRANT SELECT ON regions.sites, regions.tracts, regions.defregions TO processread;
+			GRANT USAGE ON SCHEMA process TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA process TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON regions.sites, regions.tracts, regions.defregions TO geoimiagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='processmanage' pswd='31tjiir8ubise'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA process TO processmanage;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO processmanage;
+			GRANT USAGE ON SCHEMA process TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='userread' pswd='jii8iuWH87HUDd'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA userlocale TO userread;
-			GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO userread;
-			GRANT USAGE ON SCHEMA regions TO userread;
-			GRANT SELECT ON regions.tracts, regions.sites, regions.defregions TO userread;		
+			GRANT USAGE ON SCHEMA userlocale TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON regions.tracts, regions.sites, regions.defregions TO geoimagine;		
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='manageuserproj' pswd='jWe-TW4-80m-JUH-'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
 			GRANT USAGE ON SCHEMA userlocale TO manageuserproj;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO manageuserproj;
-			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO manageuserproj;
-			GRANT USAGE ON SCHEMA regions TO manageuserproj;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO manageuserproj;
-			GRANT USAGE ON SCHEMA system TO manageuserproj;
-			GRANT SELECT ON system.regions,system.regioncats,system.defregions TO manageuserproj;
-			GRANT USAGE ON SCHEMA ancillary TO manageuserproj;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageuserproj;
-			GRANT USAGE ON SCHEMA modis TO manageuserproj;
-			GRANT SELECT ON modis.tilecoords TO manageuserproj;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON modis.regions TO manageuserproj;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO geoimagine;
+			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON system.regions,system.regioncats,system.defregions TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
+			GRANT USAGE ON SCHEMA modis TO geoimagine;
+			GRANT SELECT ON modis.tilecoords TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON modis.regions TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managelayout' pswd='jWE-TW4-90m-JUH-'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA layout TO managelayout;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO ManageLayout;
+			GRANT USAGE ON SCHEMA layout TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managemodis' pswd='95y-tbh-GgG-0BJ'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA modis TO managemodis;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO managemodis;
-			GRANT USAGE ON SCHEMA regions TO managemodis;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;
-			GRANT USAGE ON SCHEMA system TO managemodis;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO managemodis;
-			GRANT USAGE ON SCHEMA regions TO managemodis;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;
-			GRANT USAGE ON SCHEMA ancillary TO managemodis;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managemodis;
-			GRANT USAGE ON SCHEMA smap TO managemodis;
-			GRANT SELECT ON ALL TABLES IN SCHEMA smap TO managemodis;
+			GRANT USAGE ON SCHEMA modis TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
+			GRANT USAGE ON SCHEMA smap TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA smap TO geoimagine;
 		</command>
 	</process>
 	
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='manageregion' pswd='w94-388-uhH-5UH'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA regions TO manageregion;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REGIONS TO manageregion;
-			GRANT USAGE ON SCHEMA system TO manageregion;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA SYSTEM TO manageregion;
-			GRANT USAGE ON SCHEMA ancillary TO manageregion;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageregion;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REGIONS TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA SYSTEM TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
 		</command>
 	</process>
 	
 	
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='manageancillary' pswd='w94-3R8-uhH-5CH'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA system TO manageancillary;
-			GRANT SELECT ON ALL TABLES IN SCHEMA SYSTEM TO manageancillary;
-			GRANT USAGE ON SCHEMA ancillary TO manageancillary;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO manageancillary;
-			GRANT USAGE ON SCHEMA climateindex TO manageancillary;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO manageancillary;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA SYSTEM TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
+			GRANT USAGE ON SCHEMA climateindex TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO geoimagine;
 		</command>
 	</process>
 	
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='formatread' pswd='jii-8ub-ise'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA process TO formatread;
-			GRANT SELECT ON process.celltypes, process.gdalformat TO formatread;
+			GRANT USAGE ON SCHEMA process TO geoimagine;
+			GRANT SELECT ON process.celltypes, process.gdalformat TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='regionread' pswd='84i-oOH-thf-tj1'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA regions TO regionread;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO regionread;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO regionread;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managesoilmoisture' pswd='w84-3R8-uhH-5DH'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA soilmoisture TO managesoilmoisture;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO managesoilmoisture;
-			GRANT USAGE ON SCHEMA climateindex TO manageancillary;
-			GRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO managesoilmoisture;
+			GRANT USAGE ON SCHEMA soilmoisture TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO geoimagine;
+			GRANT USAGE ON SCHEMA climateindex TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO geoimagine;
 
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managesentinel' pswd='95d-tBh-GuG-0mJ'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA sentinel TO managesentinel;
-			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA sentinel TO managesentinel;
+			GRANT USAGE ON SCHEMA sentinel TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA sentinel TO geoimagine;
 			GRANT USAGE ON SCHEMA regions TO managesentinel;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managesentinel;
-			GRANT USAGE ON SCHEMA system TO managesentinel;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO managesentinel;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managelandsat' pswd='95t-gBh-GuG-1RM'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA landsat TO managelandsat;
-			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA landsat TO managelandsat;
-			GRANT USAGE ON SCHEMA regions TO managelandsat;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managelandsat;
-			GRANT USAGE ON SCHEMA system TO managelandsat;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO managelandsat;
-			GRANT USAGE ON SCHEMA ancillary TO managelandsat;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managelandsat;
+			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA landsat TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA landsat TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='managesmap' pswd='95t-gBh-GuG-6RM'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA smap TO managesmap;
-			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA smap TO managesmap;
-			GRANT USAGE ON SCHEMA regions TO managesmap;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managesmap;
-			GRANT USAGE ON SCHEMA system TO managesmap;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO managesmap;
-			GRANT USAGE ON SCHEMA ancillary TO managesmap;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managesmap;
+			GRANT USAGE ON SCHEMA smap TO geoimagine;
+			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA smap TO geoimagine;
+			GRANT USAGE ON SCHEMA regions TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO geoimagine;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
 		</command>
 	</process>
 
 	<process processid ='grant'>
-		<parameters db = 'karttur' user='manageexport' pswd='98k-gBh-GuB-6RM'></parameters>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA system TO manageexport;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO manageexport;
-			GRANT USAGE ON SCHEMA ancillary TO manageexport;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageexport;
+			GRANT USAGE ON SCHEMA system TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA system TO geoimagine;
+			GRANT USAGE ON SCHEMA ancillary TO geoimagine;
+			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO geoimagine;
 			GRANT USAGE ON SCHEMA smap TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA smap TO manageexport;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA smap TO geoimagine;
 			GRANT USAGE ON SCHEMA landsat TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO manageexport;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO geoimagine;
 			GRANT USAGE ON SCHEMA modis TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO manageexport;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO geoimagine;
 			GRANT USAGE ON SCHEMA regions TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA regions TO manageexport;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA regions TO geoimagine;
 			GRANT USAGE ON SCHEMA layout TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA layout TO manageexport;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA layout TO geoimagine;
 		</command>
 	</process>
 

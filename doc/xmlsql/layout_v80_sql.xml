@@ -69,7 +69,7 @@
 			fonteffect varchar(64) DEFAULT '',
 			
 			titlefont varchar(32) DEFAULT 'verdana',
-			titlefontcolor varchar(16) DEFAULT 'black,
+			titlefontcolor varchar(16) DEFAULT 'black',
 			titlefontsize smallint DEFAULT 24,
 			titlefonteffect varchar(64) DEFAULT '',
 			
