@@ -13,12 +13,12 @@ def SetUpProdDb(prodDB):
     '''
     Create production database(db)
     '''
-    HOST = 'localhost1'
+    HOST = 'karttur'
     secrets = netrc.netrc()
     username, account, password = secrets.authenticators( HOST )
     #print ('username',username)
     password = b64encode(password.encode())
-   
+
     #create a query dictionary for connecting to the Postgres server
     query = {'db':'postgres','user':username,'pswd':password}
     #Connect to the Postgres Server
@@ -66,9 +66,9 @@ def SetupSchemasTables(projFPN,db,verbose):
     with open(projFPN) as f:
         xmlL = f.readlines()
     # Remove whitespace characters like `\n` at the end of each line
-    xmlL = [path.join(dirPath,x.strip())  for x in xmlL if len(x) > 10 and x[0] != '#'] 
+    xmlL = [path.join(dirPath,x.strip())  for x in xmlL if len(x) > 10 and x[0] != '#']
     # Define the database connection
-    HOST = 'localhost1'
+    HOST = 'karttur'
     secrets = netrc.netrc()
     username, account, password = secrets.authenticators( HOST )
     pswd = b64encode(password.encode())
@@ -81,9 +81,9 @@ def SetupSchemasTables(projFPN,db,verbose):
         session.ReadSqxXml(xml,verbose)
     #close the db connection
     session._Close()
-        
+
 if __name__ == "__main__":
-    
+
     prodDB = 'postgres'
     verbose = True
     '''
@@ -94,29 +94,22 @@ if __name__ == "__main__":
 
     '''SetUpProdDb creates an empty Postgres database under the cluster postgres with the name "YourProdDB".'''
     #SetUpProdDb(prodDB)
-  
+
     '''
     SetupSchemasTables creates schemas and tables from xml files, with the relative path to the
     xml files given in the plain text file "projFPN".
     '''
     #projFPN = 'doc/db_karttur_setup_20181116.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
-    
+
     '''
     #db_karttur_dbusers_YYYYMMDDX.xml adds db users for handling connections to postgres db
     '''
     #projFPN = 'doc/db_karttur_dbusers_20181116.txt'
     #SetupSchemasTables(projFPN,prodDB,verbose)
-    
+
     '''
     #db_karttur_modregions_20181116.txt adds global default tiles to modis.region
     '''
     projFPN = 'doc/db_karttur_modregions_20181116.txt'
     SetupSchemasTables(projFPN,prodDB,verbose)
-    
-
-    
-
-    
-    
-
