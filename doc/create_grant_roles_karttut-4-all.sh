@@ -1,49 +1,35 @@
 psql postgres
 
-CREATE USER processread WITH PASSWORD 'jii8ubise';
-GRANT USAGE ON SCHEMA process TO processread;
-GRANT SELECT ON ALL TABLES IN SCHEMA process TO processread;
-GRANT USAGE ON SCHEMA regions TO processread;
-GRANT SELECT ON regions.sites, regions.tracts, regions.defregions TO processread;
+CREATE USER karttur WITH PASSWORD 'abc';
+GRANT USAGE ON SCHEMA process TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO karttur;
 
-CREATE USER processmanage WITH PASSWORD '31tjiir8ubise';
-GRANT USAGE ON SCHEMA process TO processmanage;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO processmanage;
 
-CREATE USER userread WITH PASSWORD 'jii8iuWH87HUDd';
-GRANT USAGE ON SCHEMA userlocale TO userread;
-GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO userread;
-GRANT USAGE ON SCHEMA regions TO userread;
-GRANT SELECT ON regions.tracts, regions.sites, regions.defregions TO userread;
+GRANT USAGE ON SCHEMA regions TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO karttur;
 
-CREATE USER manageuserproj WITH PASSWORD 'jWe-TW4-80m-JUH-';
-GRANT USAGE ON SCHEMA userlocale TO manageuserproj;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO manageuserproj;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO manageuserproj;
-GRANT USAGE ON SCHEMA regions TO manageuserproj;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO manageuserproj;
-GRANT USAGE ON SCHEMA system TO manageuserproj;
-GRANT SELECT ON system.regions,system.regioncats,system.defregions TO manageuserproj;
-GRANT USAGE ON SCHEMA ancillary TO manageuserproj;
-GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageuserproj;
-GRANT USAGE ON SCHEMA modis TO manageuserproj;
+GRANT USAGE ON SCHEMA userlocale TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO karttur;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO karttur;
+
+GRANT USAGE ON SCHEMA system TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA system TO karttur;
+
+GRANT USAGE ON SCHEMA ancillary TO karttur;
+GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
+
+GRANT USAGE ON SCHEMA modis TO karttur;
 GRANT SELECT ON modis.tilecoords TO manageuserproj;
-GRANT SELECT, INSERT, UPDATE, DELETE ON modis.regions TO manageuserproj;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO karttur;
+
+GRANT USAGE ON SCHEMA layout TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO karttur;
+
+GRANT USAGE ON SCHEMA modis TO karttur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO karttur;
 
 
-CREATE USER ManageLayout WITH PASSWORD 'jWE-TW4-90m-JUH-';
-GRANT USAGE ON SCHEMA layout TO ManageLayout;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO ManageLayout;
 
-CREATE USER managemodis WITH PASSWORD '95y-tbh-GgG-0BJ';
-GRANT USAGE ON SCHEMA modis TO managemodis;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO managemodis;
-GRANT USAGE ON SCHEMA regions TO managemodis;
-GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;
-GRANT USAGE ON SCHEMA system TO managemodis;
-GRANT SELECT ON ALL TABLES IN SCHEMA system TO managemodis;
-GRANT USAGE ON SCHEMA regions TO managemodis;
-GRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;
 GRANT USAGE ON SCHEMA ancillary TO managemodis;
 GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managemodis;
 GRANT USAGE ON SCHEMA smap TO managemodis;
