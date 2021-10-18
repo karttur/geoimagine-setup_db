@@ -1,0 +1,22 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "modis",
+        "table": "regions",
+        "command": [
+          "regionid TEXT",
+          "value smallint NOT NULL",
+          "regiontype char(1)",
+          "path smallint",
+          "row smallint",
+          "PRIMARY KEY (regionid,path,row)"
+        ]
+      }
+    }
+  ]
+}

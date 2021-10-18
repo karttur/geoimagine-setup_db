@@ -1,0 +1,459 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale",
+        "table": "users",
+        "command": [
+          "usernr bigserial",
+          "userid TEXT",
+          "userpswd varchar(32)",
+          "firstname varchar(32)",
+          "middlename varchar(32)",
+          "lastname varchar(32)",
+          "adressname varchar(32)",
+          "title varchar(32)",
+          "usetitle char(1) DEFAULT 'N'",
+          "country char(2)",
+          "state varchar(32)",
+          "adress1 varchar(32)",
+          "adress2 varchar(32)",
+          "postcode varchar(32)",
+          "postadress varchar(32)",
+          "email1 varchar(64)",
+          "email2 varchar(64)",
+          "landline varchar(32)",
+          "mobile varchar(32)",
+          "organization varchar(32)",
+          "department varchar(32)",
+          "orgunit varchar(32)",
+          "position varchar(32)",
+          "usercat varchar(8)",
+          "stratum smallint",
+          "PRIMARY KEY (userid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale",
+        "table": "organisations",
+        "command": [
+          "instid TEXT",
+          "instname VARCHAR(128) NOT NULL",
+          "insturl VARCHAR(256)",
+          "instemail VARCHAR(256)",
+          "instaddress1 VARCHAR(64)",
+          "instaddress2 VARCHAR(64)",
+          "instcity VARCHAR(32)",
+          "instzip VARCHAR(16)",
+          "inststate VARCHAR(32)",
+          "instcountryid CHAR(2)",
+          "insttel VARCHAR(32)",
+          "instfax VARCHAR(32)",
+          "accessdate DATE",
+          "status VARCHAR(2)",
+          "PRIMARY KEY(instid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale",
+        "table": "themeids",
+        "command": [
+          "themeid INTEGER NOT NULL",
+          "theme VARCHAR(32) NOT NULL",
+          "status VARCHAR(2)",
+          "PRIMARY KEY(themeid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale",
+        "table": "usercats",
+        "command": [
+          "usercat varchar(16)",
+          "stratum integer NOT NULL",
+          "title varchar(64)",
+          "label varchar(128)",
+          "descript TEXT",
+          "saveview char(1) DEFAULT 'Y'",
+          "shareview char(1) DefAULT 'Y'",
+          "layout char(1) DEFAULT 'Y'",
+          "savelayout char(1) DEFAULT 'Y'",
+          "sharelayout char(1) DefAULT 'Y'",
+          "maxdefregion varchar(16) DEFAULT 'country'",
+          "maxtracts integer DEFAULT 0",
+          "maxsites integer DEFAULT 0",
+          "maxsamples integer DEFAULT 0",
+          "maxscenes integer DEFAULT 0",
+          "modelcal char(1) DEFAULT 'N'",
+          "modelform char(1) DEFAULT 'N'",
+          "modelsave char(1) DEFAULT 'N'",
+          "modelshare char(1) DEFAULT 'N'",
+          "anciladd char(1) DEFAULT 'N'",
+          "maxancil INTEGER DEFAULT 0",
+          "screendig char(1) DEFAULT 'Y'",
+          "layerextract char(1) DEFAULT 'Y'",
+          "regioncellmax INTEGER DEFAULT 512",
+          "maxMB integer DEFAULT 1",
+          "PRIMARY KEY (usercat)"
+        ]
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale",
+        "table": "usercats",
+        "command": {
+          "columns": [
+            "usercat",
+            "stratum",
+            "title",
+            "label",
+            "maxdefregion",
+            "maxtracts",
+            "maxsites",
+            "maxsamples",
+            "maxscenes",
+            "modelcal",
+            "modelform",
+            "modelsave",
+            "modelshare",
+            "anciladd",
+            "maxancil",
+            "screendig",
+            "layerextract",
+            "regioncellmax",
+            "maxMB"
+          ],
+          "values": [
+            [
+              "'super'",
+              "0",
+              "'superuser'",
+              "'superuser'",
+              "0",
+              "-22",
+              "-22",
+              "-22",
+              "-22",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "-22",
+              "'Y'",
+              "'Y'",
+              "-22",
+              "-22"
+            ],
+            [
+              "'global'",
+              "'1'",
+              "'global'",
+              "'user with global access and capability'",
+              "1",
+              "100",
+              "1000",
+              "1000000",
+              "100",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "100",
+              "'Y'",
+              "'Y'",
+              "1024",
+              "2000"
+            ],
+            [
+              "'develop'",
+              "'3'",
+              "'developer'",
+              "'developer with global access and capability'",
+              "1",
+              "10",
+              "100",
+              "10000",
+              "10",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "10",
+              "'Y'",
+              "'Y'",
+              "1024",
+              "200"
+            ],
+            [
+              "'hydro'",
+              "'5'",
+              "'hydrologist'",
+              "'user for hydrological modeling'",
+              "4",
+              "5",
+              "20",
+              "10000",
+              "5",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "120",
+              "'Y'",
+              "'Y'",
+              "1024",
+              "200"
+            ],
+            [
+              "'modeller'",
+              "'7'",
+              "'modeller'",
+              "'local model developer'",
+              "4",
+              "1",
+              "5",
+              "1000",
+              "2",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "5",
+              "'Y'",
+              "'Y'",
+              "512",
+              "20"
+            ],
+            [
+              "'continent'",
+              "'9'",
+              "'continental'",
+              "'user with continental access and capability'",
+              "2",
+              "10",
+              "100",
+              "100000",
+              "10",
+              "'Y'",
+              "'N'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "10",
+              "'Y'",
+              "'Y'",
+              "1024",
+              "200"
+            ],
+            [
+              "'country'",
+              "'11'",
+              "'country'",
+              "'user with country access and capability'",
+              "4",
+              "5",
+              "20",
+              "10000",
+              "5",
+              "'Y'",
+              "'N'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "5",
+              "'Y'",
+              "'Y'",
+              "1024",
+              "50"
+            ],
+            [
+              "'place'",
+              "'13'",
+              "'user for single location(place)'",
+              "'user with local access and capability'",
+              "4",
+              "1",
+              "5",
+              "1000",
+              "2",
+              "'Y'",
+              "'N'",
+              "'Y'",
+              "'Y'",
+              "'Y'",
+              "5",
+              "'Y'",
+              "'Y'",
+              "512",
+              "10"
+            ],
+            [
+              "'viewer'",
+              "'15'",
+              "'viewer'",
+              "'viewer'",
+              "0",
+              "1",
+              "1",
+              "0",
+              "1",
+              "'N'",
+              "'N'",
+              "'N'",
+              "'N'",
+              "'N'",
+              "0",
+              "'Y'",
+              "'N'",
+              "512",
+              "1"
+            ],
+            [
+              "'guest'",
+              "'20'",
+              "'guest'",
+              "'guest'",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "'N'",
+              "'N'",
+              "'N'",
+              "'N'",
+              "'N'",
+              "0",
+              "'N'",
+              "'N'",
+              "512",
+              "0"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "system",
+        "table": "regioncats",
+        "command": {
+          "columns": [
+            "regioncat",
+            "parentcat",
+            "stratum",
+            "title",
+            "label"
+          ],
+          "values": [
+            [
+              "'globe'",
+              "'self'",
+              "'0'",
+              "'The entire Earth'",
+              "'Stratum 0 (global) only has a single region - the entire Earth globe'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "system",
+        "table": "defregions",
+        "command": {
+          "columns": [
+            "regioncat",
+            "regionid",
+            "regionname",
+            "parentid",
+            "title",
+            "label"
+          ],
+          "values": [
+            [
+              "'globe'",
+              "'globe'",
+              "'globe'",
+              "'self'",
+              "'globe region'",
+              "'The globe region is never used, only used to allow defining all other regions'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "system",
+        "table": "regions",
+        "command": {
+          "columns": [
+            "regioncat",
+            "regionid",
+            "regiontype",
+            "epsg",
+            "ullat",
+            "ullon",
+            "urlat",
+            "urlon",
+            "lrlat",
+            "lrlon",
+            "lllat",
+            "lllon",
+            "minx",
+            "miny",
+            "maxx",
+            "maxy"
+          ],
+          "values": [
+            ["'globe'","'globe'","'D'","'4326'","90","-180","90","180","-90","180","-90","-180","-180","-90","180","90"]
+          ]
+        }
+      }
+    }
+  ]
+}

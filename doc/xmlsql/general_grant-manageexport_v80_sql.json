@@ -1,0 +1,83 @@
+[
+  {
+    "processid": "grant",
+    "overwrite": false,
+    "delete": false,
+    "parameters": {
+      "db": "karttur",
+      "user": "geoimagine",
+      "pswd": "abc",
+      "command": [
+        [
+          "GRANT SELECT ALL TABLES IN SCHEMA process TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA system TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA system TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA regions TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA regions TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA userlocale TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA ancillary TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA landsat TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA landsat TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA modis TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA modis TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA sentinel TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA sentinel TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA smap TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA smap TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA layout TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ALL TABLES IN SCHEMA layout TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA climateindex TO manageexport;"
+        ],
+        [
+          "GRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO manageexport;"
+        ],
+        [
+          "GRANT USAGE ON SCHEMA soilmoisture TO manageexport;"
+        ],
+        [
+          "GRANT SELECT IN SCHEMA soilmoisture TO manageexport;"
+        ]
+      ]
+    }
+  }
+]

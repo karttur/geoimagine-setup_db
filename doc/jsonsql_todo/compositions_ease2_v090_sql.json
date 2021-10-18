@@ -1,0 +1,286 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2northpole",
+        "table": "compdef",
+        "command": [
+          "compid TEXT",
+          "content varchar(32)",
+          "layerid varchar(64)",
+          "prefix varchar(32)",
+          "scalefac real",
+          "offsetadd real",
+          "measure char(1) NOT NULL",
+          "dataunit varchar(32)",
+          "title varchar(255)",
+          "label varchar(255)",
+          "PRIMARY KEY (compid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2northpole",
+        "table": "compprod",
+        "command": [
+          "compid TEXT",
+          "system varchar(16) NOT NULL",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "cellnull real",
+          "celltype varchar(8)",
+          "masked character(1) DEFAULT 'N'",
+          "title varchar(255)",
+          "label varchar(255)",
+          "frequency varchar(20)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2northpole",
+        "table": "layer",
+        "command": [
+          "layerid bigserial",
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "acqdatestr varchar(20)",
+          "acqdate date",
+          "doy smallint",
+          "createdate date DEFAULT CURRENT_DATE",
+          "xntile smallint",
+          "yntile smallint",
+          "xnyntile char(8)",
+          "PRIMARY KEY (compid,source,product,suffix,xntile,yntile,acqdatestr)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2northpole",
+        "table": "mask",
+        "command": [
+          "source TEXT",
+          "product varchar(32)",
+          "cellnull smallint",
+          "water smallint",
+          "cloudshadow smallint",
+          "snow smallint",
+          "cloud smallint",
+          "clear smallint",
+          "mask smallint ARRAY[3]",
+          "PRIMARY KEY (source,product)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2southpole",
+        "table": "compdef",
+        "command": [
+          "compid TEXT",
+          "content varchar(32)",
+          "layerid varchar(64)",
+          "prefix varchar(32)",
+          "scalefac real",
+          "offsetadd real",
+          "measure char(1) NOT NULL",
+          "dataunit varchar(32)",
+          "title varchar(255)",
+          "label varchar(255)",
+          "PRIMARY KEY (compid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2southpole",
+        "table": "compprod",
+        "command": [
+          "compid TEXT",
+          "system varchar(16) NOT NULL",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "cellnull real",
+          "celltype varchar(8)",
+          "masked character(1) DEFAULT 'N'",
+          "title varchar(255)",
+          "label varchar(255)",
+          "frequency varchar(20)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2southpole",
+        "table": "layer",
+        "command": [
+          "layerid bigserial",
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "acqdatestr varchar(20)",
+          "acqdate date",
+          "doy smallint",
+          "createdate date DEFAULT CURRENT_DATE",
+          "xstile smallint",
+          "ystile smallint",
+          "xnyntile char(8)",
+          "PRIMARY KEY (compid,source,product,suffix,xstile,ystile,acqdatestr)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2southpole",
+        "table": "mask",
+        "command": [
+          "source TEXT",
+          "product varchar(32)",
+          "cellnull smallint",
+          "water smallint",
+          "cloudshadow smallint",
+          "snow smallint",
+          "cloud smallint",
+          "clear smallint",
+          "mask smallint ARRAY[3]",
+          "PRIMARY KEY (source,product)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2tropics",
+        "table": "compdef",
+        "command": [
+          "compid TEXT",
+          "content varchar(32)",
+          "layerid varchar(64)",
+          "prefix varchar(32)",
+          "scalefac real",
+          "offsetadd real",
+          "measure char(1) NOT NULL",
+          "dataunit varchar(32)",
+          "title varchar(255)",
+          "label varchar(255)",
+          "PRIMARY KEY (compid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2tropics",
+        "table": "compprod",
+        "command": [
+          "compid TEXT",
+          "system varchar(16) NOT NULL",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "cellnull real",
+          "celltype varchar(8)",
+          "masked character(1) DEFAULT 'N'",
+          "title varchar(255)",
+          "label varchar(255)",
+          "frequency varchar(20)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2tropics",
+        "table": "layer",
+        "command": [
+          "layerid bigserial",
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "acqdatestr varchar(20)",
+          "acqdate date",
+          "doy smallint",
+          "createdate date DEFAULT CURRENT_DATE",
+          "xttile smallint",
+          "yttile smallint",
+          "xnyntile char(8)",
+          "PRIMARY KEY (compid,source,product,suffix,xttile,yttile,acqdatestr)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2tropics",
+        "table": "mask",
+        "command": [
+          "source TEXT",
+          "product varchar(32)",
+          "cellnull smallint",
+          "water smallint",
+          "cloudshadow smallint",
+          "snow smallint",
+          "cloud smallint",
+          "clear smallint",
+          "mask smallint ARRAY[3]",
+          "PRIMARY KEY (source,product)"
+        ]
+      }
+    }
+  ]
+}

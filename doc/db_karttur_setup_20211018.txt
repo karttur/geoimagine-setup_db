@@ -1,0 +1,137 @@
+# general_schema_vXX_sql.json installs the default database schemas
+jsonsql/general_schema_v090_sql.json
+
+# general_processes_vXX_sql.json installs the tables for handling paths and processes
+jsonsql/general_processes_v090_sql.json
+
+#general_records_vXX_sql.json adds records for super users and the process for managing all other processes
+jsonsql/general_records_v090_sql.json
+
+# general_GDAL_vXX_sql.json installs and fills the tables that defines the different
+# cell types and file types that the system can handle
+jsonsql/general_GDALtypes_v090_sql.json
+
+# general_processeschain_vXX_sql.json installs the automated processing chains tables
+jsonsql/general_processeschain_v090_sql.json
+
+# compositions_ancillary_vXX_sql.json installs the tables for defining ancillary compositions
+jsonsql/compositions_ancillary_v090_sql.json
+
+# compositions_system_vXX_sql.json installs the tables for defining system compositions
+jsonsql/compositions_system_v090_sql.json
+
+# compositions_specimen_vXX_sql.json installs the tables for defining specimen compositions
+jsonsql/compositions_specimen_v090_sql.json
+
+# compositions_smap_vXX_sql.json installs the tables for defining smap compositions
+jsonsql/compositions_smap_v090_sql.json
+
+# compositions_sentinel_vXX_sql.json installs the tables for defining sentinel compositions
+jsonsql/compositions_sentinel_v090_sql.json
+
+# compositions_regions_vXX_sql.json installs the tables for defining region compositions
+jsonsql/compositions_regions_v090_sql.json
+
+# compositions_modis_vXX_sql.json installs the tables for defining modis compositions
+jsonsql/compositions_modis_v090_sql.json
+
+# compositions_landsat_vXX_sql.json installs the tables for defining landsat compositions
+jsonsql/compositions_landsat_v090_sql.json
+
+# compositions_export_vXX_sql.json installs the tables for defining export compositions
+jsonsql/compositions_export_v090_sql.json
+
+# all_system_regions_vXX_sql.json installs the region tables for the different systems
+jsonsql/all_system_regions_v090_sql.json
+
+# ancillary_vXX_sql.json installs the tables that defines ancillary data sources
+jsonsql/ancillary_v090_sql.json
+
+# SKIPPED FOR NOW
+# endmember_vXX_sql.json tables for soil line and vegetation spectral extraction
+##NotNow/endmember_v090_sql.json
+
+# SKIPPED FOR NOW
+# speclib_vXX_sql.json tables for spectral library
+#NotNow/speclib_v090_sql.json
+
+#landsat_tilecoord_vXX_sql.json adds the coordinates for landsat tiles
+jsonsql/landsat_scenecoords_v090_sql.json
+
+# landsat_scenes_bands_vXX_sql.json installs the tables for landsat scenes, bands and masks
+jsonsql/landsat_scenes_bands_v090_sql.json
+
+# landsat_templates_vXX_sql.json installs the landsat template table
+jsonsql/landsat_templates_v090_sql.json
+
+# SKIPPED FOR NOW
+# landsat_usgs_meta_vXX_sql.json installs the core landsat meta tables, the columns are installed later
+#NotNow/landsat_usgs_meta_v090_sql.json
+
+# layout_vXX_sql.json adds the tables for layout
+jsonsql/layout_v090_sql.json
+
+# MODIS regional tiles for land and continents
+jsonsql/modis_tile_regions_v090_sql.json
+
+# modis_scenes_bands_vXX_sql.json adds both the table for holding all scenes available at the
+# datapool as well as the tables for local modis data holdings
+jsonsql/modis_scenes_bands_v090_sql.json
+
+# modis_template_vXX_sql.json installs the modis template table, and adds records for the MODIS products in use
+jsonsql/modis_template_v090_sql.json
+
+# modis_tilecoords_vXX_sql.json adds the table for modis tile coordinates
+jsonsql/modis_tilecoords_v090_sql.json
+
+# projects_vXX_sql.json installs the tables that defines user projects and project types
+#NOT YET
+
+# system_regions_vXX_sql.json installs the tables that hold system default regions and categories
+jsonsql/system_regions_v090_sql.json
+
+# regions_vXX_sql.json installs the tables that hold regions
+jsonsql/regions_v090_sql.json
+
+# SKIPPED FOR NOW
+# specimen_vXX_sql.json adds the table for ground sampled data
+##NotNow/specimen_v090_sql.json
+
+# SKIPPED FOR NOW
+# specimen_satdata_vXX_sql.json adds the table for linking sat data to sample points
+##NotNow//specimen_satdata_v090_sql.json
+
+# SKIPPED FOR NOW
+# topo_vXX_sql.json adds the db for point elevation data
+##NotNow//topo_v090_sql.json
+
+# User projects - defines users and user projects
+jsonsql/user_projects_v090_sql.json
+
+# usersvXX_sql.json installs the tables that hold all the system users
+jsonsql/users_v090_sql.json
+
+# superuserprojs_vXX_sql.json adds the superusers of the system,
+# NOTE - THE JSON FILE MUST BE EDITED TO SET THE PREFERED SUPER USERS
+jsonsql/user_super_v090_sql.json
+
+#climateindexes_vXX_sql.json adds the schema and table for climate indexes
+jsonsql/climateindexes_v090_sql.json
+
+#sentinel_scenes_bands_vXX_sql.json adds the schema for sentinel data
+jsonsql/sentinel_scenes_bands_v090_sql.json
+
+#sentinel_tilecoord_vXX_sql.json adds the coordinates for sentinel tiles
+jsonsql/sentinel_tilecoords_v090_sql.json
+
+#sentinel_template_vXX_sql.json adds the sentinel tile templates
+jsonsql/sentinel_template_v090_sql.json
+
+#SMAP_products_vXX_sql.json create a table for SMAp products and inserts records
+jsonsql/SMAP_products_v090_sql.json
+
+#SMAP_template_vXX_sql.json
+jsonsql/SMAP_template_v090_sql.json
+
+#soilmoisture_vXX_sql.json creates soilmoisture tables
+jsonsql/soilmoisture_v090_sql.json

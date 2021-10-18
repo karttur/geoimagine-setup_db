@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <sql>
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
-	
-	<!-- installs the tables for handling paths and processes and the core process 
+
+	<!-- installs the tables for handling paths and processes and the core process
     handling all other process definitions -->
-    
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'prcesschain'></parameters>
 		<overwrite>N</overwrite>
@@ -18,7 +18,7 @@
 			PRIMARY KEY (chainid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chainprocess'></parameters>
 		<overwrite>N</overwrite>
@@ -31,7 +31,7 @@
 			PRIMARY KEY (chainid,chainstep,subprocid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chaincompin'></parameters>
 		<overwrite>N</overwrite>
@@ -44,7 +44,7 @@
 			PRIMARY KEY (chainid,chainstep,compid,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chainparams'></parameters>
 		<overwrite>N</overwrite>
@@ -57,7 +57,7 @@
 			PRIMARY KEY (chainid,chainstep,parameter,value)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'chaincompout'></parameters>
 		<overwrite>N</overwrite>
@@ -72,9 +72,9 @@
 			scalefac real,
 			offsetadd integer,
 			dataunit varchar(32),
-			measure char(1),	
+			measure char(1),
 			PRIMARY KEY (chainid,chainstep,compid,suffix)
 		</command>
 	</process>
-	
+
 </sql>

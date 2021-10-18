@@ -1,0 +1,171 @@
+{
+  "sql": {
+    "process": [
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "processread",
+          "@pswd": "jii8ubise"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA process TO processread;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA process TO processread;\n\t\t\tGRANT USAGE ON SCHEMA regions TO processread;\n\t\t\tGRANT SELECT ON regions.sites, regions.tracts, regions.defregions TO processread;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "processmanage",
+          "@pswd": "31tjiir8ubise"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA process TO processmanage;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO processmanage;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "userread",
+          "@pswd": "jii8iuWH87HUDd"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA userlocale TO userread;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO userread;\n\t\t\tGRANT USAGE ON SCHEMA regions TO userread;\n\t\t\tGRANT SELECT ON regions.tracts, regions.sites, regions.defregions TO userread;\t\t\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "manageuserproj",
+          "@pswd": "jWe-TW4-80m-JUH-"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA userlocale TO manageuserproj;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO manageuserproj;\n\t\t\tGRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO manageuserproj;\n\t\t\tGRANT USAGE ON SCHEMA regions TO manageuserproj;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO manageuserproj;\n\t\t\tGRANT USAGE ON SCHEMA system TO manageuserproj;\n\t\t\tGRANT SELECT ON system.regions,system.regioncats,system.defregions TO manageuserproj;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO manageuserproj;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageuserproj;\n\t\t\tGRANT USAGE ON SCHEMA modis TO manageuserproj;\n\t\t\tGRANT SELECT ON modis.tilecoords TO manageuserproj;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON modis.regions TO manageuserproj;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managelayout",
+          "@pswd": "jWE-TW4-90m-JUH-"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA layout TO managelayout;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO ManageLayout;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managemodis",
+          "@pswd": "95y-tbh-GgG-0BJ"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA modis TO managemodis;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO managemodis;\n\t\t\tGRANT USAGE ON SCHEMA regions TO managemodis;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;\n\t\t\tGRANT USAGE ON SCHEMA system TO managemodis;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO managemodis;\n\t\t\tGRANT USAGE ON SCHEMA regions TO managemodis;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO managemodis;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO managemodis;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managemodis;\n\t\t\tGRANT USAGE ON SCHEMA smap TO managemodis;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA smap TO managemodis;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "manageregion",
+          "@pswd": "w94-388-uhH-5UH"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA regions TO manageregion;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REGIONS TO manageregion;\n\t\t\tGRANT USAGE ON SCHEMA system TO manageregion;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA SYSTEM TO manageregion;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO manageregion;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageregion;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "manageancillary",
+          "@pswd": "w94-3R8-uhH-5CH"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA system TO manageancillary;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA SYSTEM TO manageancillary;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO manageancillary;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO manageancillary;\n\t\t\tGRANT USAGE ON SCHEMA climateindex TO manageancillary;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO manageancillary;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "formatread",
+          "@pswd": "jii-8ub-ise"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA process TO formatread;\n\t\t\tGRANT SELECT ON process.celltypes, process.gdalformat TO formatread;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "regionread",
+          "@pswd": "84i-oOH-thf-tj1"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA regions TO regionread;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO regionread;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO regionread;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managesoilmoisture",
+          "@pswd": "w84-3R8-uhH-5DH"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA soilmoisture TO managesoilmoisture;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO managesoilmoisture;\n\t\t\tGRANT USAGE ON SCHEMA climateindex TO manageancillary;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO managesoilmoisture;\n\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managesentinel",
+          "@pswd": "95d-tBh-GuG-0mJ"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA sentinel TO managesentinel;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA sentinel TO managesentinel;\n\t\t\tGRANT USAGE ON SCHEMA regions TO managesentinel;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO managesentinel;\n\t\t\tGRANT USAGE ON SCHEMA system TO managesentinel;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO managesentinel;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managelandsat",
+          "@pswd": "95t-gBh-GuG-1RM"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA landsat TO managelandsat;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA landsat TO managelandsat;\n\t\t\tGRANT USAGE ON SCHEMA regions TO managelandsat;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO managelandsat;\n\t\t\tGRANT USAGE ON SCHEMA system TO managelandsat;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO managelandsat;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO managelandsat;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managelandsat;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "managesmap",
+          "@pswd": "95t-gBh-GuG-6RM"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA smap TO managesmap;\n\t\t\tGRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA smap TO managesmap;\n\t\t\tGRANT USAGE ON SCHEMA regions TO managesmap;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA regions TO managesmap;\n\t\t\tGRANT USAGE ON SCHEMA system TO managesmap;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO managesmap;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO managesmap;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO managesmap;\n\t\t"
+      },
+      {
+        "@processid": "grant",
+        "parameters": {
+          "@db": "karttur",
+          "@user": "manageexport",
+          "@pswd": "98k-gBh-GuB-6RM"
+        },
+        "overwrite": "N",
+        "delete": "N",
+        "command": "\n\t\t\tGRANT USAGE ON SCHEMA system TO manageexport;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA system TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA ancillary TO manageexport;\n\t\t\tGRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA smap TO manageexport;\n\t\t\tGRANT SELECT  ON ALL TABLES IN SCHEMA smap TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA landsat TO manageexport;\n\t\t\tGRANT SELECT  ON ALL TABLES IN SCHEMA modis TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA modis TO manageexport;\n\t\t\tGRANT SELECT  ON ALL TABLES IN SCHEMA modis TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA regions TO manageexport;\n\t\t\tGRANT SELECT  ON ALL TABLES IN SCHEMA regions TO manageexport;\n\t\t\tGRANT USAGE ON SCHEMA layout TO manageexport;\n\t\t\tGRANT SELECT  ON ALL TABLES IN SCHEMA layout TO manageexport;\n\t\t"
+      }
+    ]
+  }
+}

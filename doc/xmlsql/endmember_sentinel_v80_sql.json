@@ -1,0 +1,71 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "endmembersearch",
+        "command": [
+          "layerid bigint",
+          "createdate date DEFAULT CURRENT_DATE",
+          "bounds TEXT",
+          "soilsearchpercent real",
+          "vegindex character varying(16)",
+          "soilindex character varying(16)",
+          "soilkernelsd real",
+          "sisoilmin real",
+          "sisoilmax realr",
+          "visoilmin real",
+          "visoilmax real",
+          "soilfraction real",
+          "soilpixels int",
+          "vegkernelsd real",
+          "vivegmin real",
+          "vifraction real",
+          "vipixels int",
+          "PRIMARY KEY (layerid, bounds)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "soilline",
+        "command": [
+          "layerid bigint",
+          "band VARCHAR(32)",
+          "r2 real",
+          "intercept real",
+          "slope real",
+          "stderr real",
+          "PRIMARY KEY (layerid,band)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "endmember",
+        "command": [
+          "layerid bigint",
+          "endmember varchar(16)",
+          "band character varying(32)",
+          "mean real",
+          "std real",
+          "PRIMARY KEY (layerid,endmember,band)"
+        ]
+      }
+    }
+  ]
+}

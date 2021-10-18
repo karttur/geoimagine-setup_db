@@ -2,46 +2,46 @@
 <sql>
 
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
-	
+
 	<!-- installs the tables that define all compositions-->
 
 	<!-- Ancillary compositions-->
-		
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'dscompid'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command> 
-			dsid TEXT,   
+		<command>
+			dsid TEXT,
 			compid  TEXT,
 			PRIMARY KEY(dsid,compid)
     	</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
-			compid TEXT,			
+		<command>
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64),
 			prefix varchar(32),
 			scalefac real,
 			offsetadd real,
 			measure char(1) NOT NULL,
-			dataunit varchar(32),	
+			dataunit varchar(32),
 			title varchar(255),
 			label varchar(255),
-			PRIMARY KEY (compid)	
+			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>						
+		<command>
 			compid TEXT,
 			system varchar(16) NOT NULL,
 			source TEXT,
@@ -51,17 +51,17 @@
 			celltype varchar(8),
 			masked character(1) DEFAULT 'N',
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'ancillary' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -69,29 +69,29 @@
 			acqdatestr varchar(20),
 			acqdate date,
 			doy smallint,
-			createdate date DEFAULT CURRENT_DATE,	
+			createdate date DEFAULT CURRENT_DATE,
 			regionid TEXT,
 			PRIMARY KEY (compid,source,product,suffix,regionid,acqdatestr)
     	</command>
 	</process>
-	
-	
-	
+
+
+
 	<!--System compostions -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,					
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64),
 			prefix varchar(32),
 			scalefac real,
 			offsetadd real,
 			measure char(1) NOT NULL,
-			dataunit varchar(32),	
+			dataunit varchar(32),
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
@@ -112,12 +112,12 @@
 			celltype varchar(8),
 			masked character(1) DEFAULT 'N',
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'system' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
@@ -131,27 +131,27 @@
 			acqdate date,
 			doy smallint,
 			createdate date DEFAULT CURRENT_DATE,
-			regionid TEXT,	
+			regionid TEXT,
 			PRIMARY KEY (compid,source,product,suffix,regionid,acqdatestr)
 		</command>
 	</process>
-	
-	
+
+
 	<!--Region compostions -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'regions' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,					
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64),
 			prefix varchar(32),
 			scalefac real,
 			offsetadd real,
 			measure char(1) NOT NULL,
-			dataunit varchar(32),	
+			dataunit varchar(32),
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
@@ -172,12 +172,12 @@
 			celltype varchar(8),
 			masked character(1) DEFAULT 'N',
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'regions' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
@@ -191,48 +191,48 @@
 			acqdate date,
 			doy smallint,
 			createdate date DEFAULT CURRENT_DATE,
-			regionid TEXT,	
+			regionid TEXT,
 			PRIMARY KEY (compid,source,product,suffix,regionid,acqdatestr)
 		</command>
 	</process>
-	
+
 	<!--Specimen compostions -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'dscompid'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command> 
-			dsid TEXT,   
+		<command>
+			dsid TEXT,
 			compid  TEXT,
 			PRIMARY KEY(dsid,compid)
     	</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>	
-			compid TEXT,			
+		<command>
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64),
 			prefix varchar(32),
 			scalefac real,
 			offsetadd real,
 			measure char(1) NOT NULL,
-			dataunit varchar(32),	
+			dataunit varchar(32),
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>						
+		<command>
 			compid TEXT,
 			system varchar(16) NOT NULL,
 			source TEXT,
@@ -242,12 +242,12 @@
 			celltype varchar(8),
 			masked character(1) DEFAULT 'N',
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'specimen' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
@@ -260,38 +260,38 @@
 			acqdatestr varchar(20),
 			acqdate date,
 			doy smallint,
-			createdate date DEFAULT CURRENT_DATE,	
+			createdate date DEFAULT CURRENT_DATE,
 			regionid TEXT,
 			PRIMARY KEY (compid,source,product,suffix,regionid,acqdatestr)
-    	</command> 		
+    	</command>
 	</process>
-	
+
 	<!-- sentinel compositions-->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64) NOT NULL,
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			system varchar(16) DEFAULT 'sentinel',
 			source TEXT,
@@ -301,17 +301,17 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -326,7 +326,7 @@
 			PRIMARY KEY (compid,source,product,suffix,utm,mgrsid,orbitid,acqdatestr)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'sentinel' table = 'masks'></parameters>
 		<overwrite>N</overwrite>
@@ -344,34 +344,34 @@
 			PRIMARY KEY (source,product)
 		</command>
 	</process>
-	
-	
+
+
 	<!-- MODIS compositions-->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64) NOT NULL,
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			system varchar(16) DEFAULT 'modis',
 			source TEXT,
@@ -381,17 +381,17 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -406,7 +406,7 @@
 			PRIMARY KEY (compid,source,product,suffix,htile,vtile,acqdatestr)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'modis' table = 'masks'></parameters>
 		<overwrite>N</overwrite>
@@ -424,52 +424,52 @@
 			PRIMARY KEY (source,product)
 		</command>
 	</process>
-	
-	
+
+
 	<!-- Landsat compositions -->
-	
-		
+
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64) NOT NULL,
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
 
-<!--	
+<!--
 	DROP TABLE landsat.compdefs;
 		CREATE TABLE landsat.compdefs (
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64) NOT NULL,
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		);
 -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			system varchar(16) DEFAULT 'landsat',
 			source TEXT,
@@ -479,12 +479,12 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),			
+			label varchar(255),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
-<!--	
+
+<!--
 	DROP TABLE landsat.compprod;
 		CREATE TABLE landsat.compprod (
 			compid TEXT,
@@ -496,16 +496,16 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),			
+			label varchar(255),
 			PRIMARY KEY (compid,source,product,suffix)
 		);
 -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -520,8 +520,8 @@
 			PRIMARY KEY (compid,source,product,suffix,wrspath,wrsrow,acqdatestr)
 		</command>
 	</process>
-	
-<!--	
+
+<!--
 	DROP TABLE landsat.layers;
 		CREATE TABLE landsat.layers (
 			compid TEXT,
@@ -538,7 +538,7 @@
 			PRIMARY KEY (compid,source,product,suffix,wrspath,wrsrow,acqdatestr)
 		);
 -->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'landsat' table = 'masks'></parameters>
 		<overwrite>N</overwrite>
@@ -556,8 +556,8 @@
 			PRIMARY KEY (source,product)
 		</command>
 	</process>
-	
-<!--	
+
+<!--
 	DROP TABLE landsat.masks;
 		CREATE TABLE landsat.masks (
 			source TEXT,
@@ -572,33 +572,33 @@
 			PRIMARY KEY (source,product)
 		);
 -->
-	
+
 	<!-- export compositions-->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'export' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64),
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'export' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			system varchar(16) NOT NULL,
 			source TEXT,
@@ -607,17 +607,17 @@
 			cellnull integer,
 			celltype varchar(8),
 			title varchar(255),
-			label varchar(255),	
-			frequency varchar(20),		
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'export' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -627,16 +627,16 @@
 			doy smallint,
 			createdate date DEFAULT CURRENT_DATE,
 			path smallint,
-			row smallint,	
+			row smallint,
 			PRIMARY KEY (compid,source,product,suffix,path,row,acqdatestr)
     	</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'export' table = 'legend'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),
@@ -653,37 +653,37 @@
 			palmin smallint,
 			palmax smallint,
 			legmin smallint,
-			legmax smallint,	
+			legmax smallint,
 			PRIMARY KEY (compid,source,product,suffix)
     	</command>
 	</process>
-	
+
 	<!-- smap compositions-->
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'compdefs'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			compid TEXT,			
+			compid TEXT,
 			folder varchar(32),
 			band varchar(64) NOT NULL,
 			prefix varchar(32) NOT NULL,
 			scalefac real NOT NULL,
 			offsetadd real NOT NULL,
 			measure char(1) NOT NULL,
-			dataunit varchar(32) NOT NULL,	
+			dataunit varchar(32) NOT NULL,
 			title varchar(255),
 			label varchar(255),
 			PRIMARY KEY (compid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'compprod'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			system varchar(16) DEFAULT 'sentinel',
 			source TEXT,
@@ -693,17 +693,17 @@
 			celltype varchar(8),
 			masked character(1),
 			title varchar(255),
-			label varchar(255),		
-			frequency varchar(20),	
+			label varchar(255),
+			frequency varchar(20),
 			PRIMARY KEY (compid,source,product,suffix)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'smap' table = 'layers'></parameters>
 		<overwrite>N</overwrite>
 		<delete>N</delete>
-		<command>			
+		<command>
 			compid TEXT,
 			source TEXT,
 			product varchar(32),

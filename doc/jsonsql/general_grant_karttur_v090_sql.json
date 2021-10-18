@@ -1,0 +1,51 @@
+{
+  "process": [
+    {
+      "processid": "grant",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "user": "karttur",
+        "command": [
+          "GRANT USAGE ON SCHEMA process TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA process TO karttur;",
+          "GRANT USAGE ON SCHEMA system TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA system TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA system TO karttur;",
+          "GRANT USAGE ON SCHEMA regions TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA regions TO karttur;",
+          "GRANT USAGE ON SCHEMA userlocale TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO karttur;",
+          "GRANT USAGE ON SCHEMA ancillary TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA ancillary TO karttur;",
+          "GRANT USAGE ON SCHEMA landsat TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA landsat TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA landsat TO karttur;",
+          "GRANT USAGE ON SCHEMA modis TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA modis TO karttur;",
+          "GRANT USAGE ON SCHEMA sentinel TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA sentinel TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA sentinel TO karttur;",
+          "GRANT USAGE ON SCHEMA smap TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA smap TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA smap TO karttur;",
+          "GRANT USAGE ON SCHEMA layout TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA layout TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA layout TO karttur;",
+          "GRANT USAGE ON SCHEMA climateindex TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA climateindex TO karttur;",
+          "GRANT USAGE ON SCHEMA soilmoisture TO karttur;",
+          "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO karttur;",
+          "GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA soilmoisture TO karttur;"
+        ]
+      }
+    }
+  ]
+}

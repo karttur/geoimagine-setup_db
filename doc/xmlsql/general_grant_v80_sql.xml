@@ -10,19 +10,9 @@
 		<delete>N</delete>
 		<command>
 			GRANT USAGE ON SCHEMA process TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA process TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON regions.sites, regions.tracts, regions.defregions TO karttur;
-		</command>
-	</process>
-
-	<process processid ='grant'>
-		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			GRANT USAGE ON SCHEMA process TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA process TO karttur;
+			GRANT USAGE ON SCHEMA regions TO karttur;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO karttur;
 		</command>
 	</process>
 
@@ -32,9 +22,8 @@
 		<delete>N</delete>
 		<command>
 			GRANT USAGE ON SCHEMA userlocale TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA userlocale TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON regions.tracts, regions.sites, regions.defregions TO karttur;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO karttur;
+			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO karttur;
 		</command>
 	</process>
 
@@ -43,18 +32,28 @@
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA userlocale TO manageuserproj;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA userlocale TO karttur;
-			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA userlocale TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA regions TO karttur;
 			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON system.regions,system.regioncats,system.defregions TO karttur;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA system TO karttur;
+		</command>
+	</process>
+
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
 			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO karttur;
+		</command>
+	</process>
+
+	<process processid ='grant'>
+		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
+		<overwrite>N</overwrite>
+		<delete>N</delete>
+		<command>
 			GRANT USAGE ON SCHEMA modis TO karttur;
-			GRANT SELECT ON modis.tilecoords TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON modis.regions TO karttur;
+			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO karttur;
 		</command>
 	</process>
 
@@ -68,25 +67,6 @@
 		</command>
 	</process>
 
-	<process processid ='grant'>
-		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			GRANT USAGE ON SCHEMA modis TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA modis TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
-			GRANT USAGE ON SCHEMA smap TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA smap TO karttur;
-		</command>
-	</process>
 
 
 	<process processid ='grant'>
@@ -94,25 +74,6 @@
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REGIONS TO karttur;
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA SYSTEM TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
-		</command>
-	</process>
-
-
-	<process processid ='grant'>
-		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA SYSTEM TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA ancillary TO karttur;
 			GRANT USAGE ON SCHEMA climateindex TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA climateindex TO karttur;
 		</command>
@@ -123,32 +84,8 @@
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA process TO karttur;
-			GRANT SELECT ON process.celltypes, process.gdalformat TO karttur;
-		</command>
-	</process>
-
-	<process processid ='grant'>
-		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
-		</command>
-	</process>
-
-	<process processid ='grant'>
-		<parameters db = 'karttur' user='geoimagine' pswd='abc'></parameters>
-		<overwrite>N</overwrite>
-		<delete>N</delete>
-		<command>
 			GRANT USAGE ON SCHEMA soilmoisture TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA soilmoisture TO karttur;
-			GRANT USAGE ON SCHEMA climateindex TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA climateindex TO karttur;
-
 		</command>
 	</process>
 
@@ -159,10 +96,7 @@
 		<command>
 			GRANT USAGE ON SCHEMA sentinel TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA sentinel TO karttur;
-			GRANT USAGE ON SCHEMA regions TO managesentinel;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
+
 		</command>
 	</process>
 
@@ -173,12 +107,7 @@
 		<command>
 			GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA landsat TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA landsat TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
+
 		</command>
 	</process>
 
@@ -189,12 +118,6 @@
 		<command>
 			GRANT USAGE ON SCHEMA smap TO karttur;
 			GRANT SELECT, INSERT, UPDATE, DELETE  ON ALL TABLES IN SCHEMA smap TO karttur;
-			GRANT USAGE ON SCHEMA regions TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA regions TO karttur;
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
 		</command>
 	</process>
 
@@ -203,20 +126,16 @@
 		<overwrite>N</overwrite>
 		<delete>N</delete>
 		<command>
-			GRANT USAGE ON SCHEMA system TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA system TO karttur;
-			GRANT USAGE ON SCHEMA ancillary TO karttur;
-			GRANT SELECT ON ALL TABLES IN SCHEMA ancillary TO karttur;
+
 			GRANT USAGE ON SCHEMA smap TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA smap TO karttur;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA smap TO manageexport;
 			GRANT USAGE ON SCHEMA landsat TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO karttur;
+
 			GRANT USAGE ON SCHEMA modis TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO karttur;
-			GRANT USAGE ON SCHEMA regions TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA regions TO karttur;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA modis TO manageexport;
+
 			GRANT USAGE ON SCHEMA layout TO manageexport;
-			GRANT SELECT  ON ALL TABLES IN SCHEMA layout TO karttur;
+			GRANT SELECT  ON ALL TABLES IN SCHEMA layout TO manageexport;
 		</command>
 	</process>
 

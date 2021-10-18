@@ -1,0 +1,240 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "datasets",
+        "command": [
+          "dsid TEXT NOT NULL",
+          "dsname VARCHAR(32) NOT NULL",
+          "instid TEXT NOT NULL",
+          "regionid varchar(64) NOT NULL",
+          "regioncat VARCHAR(32) NOT NULL",
+          "title VARCHAR(256)",
+          "label VARCHAR(256)",
+          "dataurl VARCHAR(256)",
+          "metaurl VARCHAR(256)",
+          "metapath VARCHAR(256)",
+          "datadir VARCHAR(256)",
+          "datafile VARCHAR(256)",
+          "startdate DATE",
+          "enddate DATE",
+          "PRIMARY KEY(dsid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "networks",
+        "command": [
+          "networkid VARCHAR(32)",
+          "network TEXT",
+          "PRIMARY KEY(network)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "stations",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "lat double precision",
+          "lon double precision",
+          "smmindepth float",
+          "smmaxdepth float",
+          "airtemp char(1) DEFAULT 'N'",
+          "soiltemp char(1) DEFAULT 'N'",
+          "precip char(1) DEFAULT 'N'",
+          "snowdepth char(1) DEFAULT 'N'",
+          "createdate date DEFAULT CURRENT_DATE",
+          "PRIMARY KEY (stationid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "daily05",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "noon05",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "am05",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "pm05",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "evening05",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "dailymax",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "noonmax",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "ammax",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "pmmax",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture",
+        "table": "eveningmax",
+        "command": [
+          "networkid VARCHAR(32)",
+          "stationid TEXT",
+          "datum date",
+          "soilmoisture float",
+          "PRIMARY KEY (networkid,stationid,datum)"
+        ]
+      }
+    }
+  ]
+}

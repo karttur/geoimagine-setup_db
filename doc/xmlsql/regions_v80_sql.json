@@ -1,0 +1,96 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "regions",
+        "table": "tracts",
+        "command": [
+          "parentid TEXT NOT NULL",
+          "tractid TEXT",
+          "tractname varchar(64)",
+          "regiontype char(1)",
+          "creator varchar(32)",
+          "owner varchar(32)",
+          "title varchar(64)",
+          "label varchar(128)",
+          "share smallint DEFAULT 5",
+          "createdate date DEFAULT CURRENT_DATE",
+          "PRIMARY KEY (tractid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "regions",
+        "table": "defregions",
+        "command": [
+          "regioncat varchar(32) NOT NULL",
+          "regionid varchar(32)",
+          "regionname varchar(64)",
+          "parentid varchar(32) NOT NULL",
+          "title TEXT",
+          "label TEXT",
+          "PRIMARY KEY (regioncat,regionid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "regions",
+        "table": "sites",
+        "command": [
+          "siteid TEXT",
+          "sitename varchar(64)",
+          "owner varchar(32)",
+          "tractid TEXT",
+          "title TEXT",
+          "label TEXT",
+          "share smallint DEFAULT 5",
+          "createdate date DEFAULT CURRENT_DATE",
+          "PRIMARY KEY (siteid,tractid,owner)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "regions",
+        "table": "regions",
+        "command": [
+          "regioncat TEXT",
+          "regionid TEXT",
+          "regiontype char(1)",
+          "epsg smallint",
+          "ullat double precision",
+          "ullon double precision",
+          "urlat double precision",
+          "urlon double precision",
+          "lrlat double precision",
+          "lrlon double precision",
+          "lllat double precision",
+          "lllon double precision",
+          "minx double precision",
+          "miny double precision",
+          "maxx double precision",
+          "maxy double precision",
+          "PRIMARY KEY (regionid)"
+        ]
+      }
+    }
+  ]
+}

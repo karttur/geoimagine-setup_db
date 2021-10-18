@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <sql>
 	<!-- SQL xml read by geomimagine subpackage db_setup -->
-	
-	<!-- installs the tables for handling paths and processes and the core process 
+
+	<!-- installs the tables for handling paths and processes and the core process
     handling all other process definitions -->
-    
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'rootprocesses'></parameters>
 		<overwrite>N</overwrite>
@@ -17,7 +17,7 @@
 			PRIMARY KEY (rootprocid)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'subprocesses'></parameters>
 		<overwrite>N</overwrite>
@@ -35,7 +35,7 @@
 			PRIMARY KEY (subprocid,version)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'procdiv'></parameters>
 		<overwrite>N</overwrite>
@@ -46,7 +46,7 @@
 			PRIMARY KEY (subprocid,division)
 		</command>
 	</process>
-	
+
 	<process processid ='createtable'>
 		<parameters db = 'karttur' schema = 'process' table = 'procsys'></parameters>
 		<overwrite>N</overwrite>
@@ -95,7 +95,7 @@
 			paramid varchar(32),
 			setvalue varchar(32),
 			label varchar(128),
-			PRIMARY KEY (subprocid,version,parent, element,paramid,setvalue)
+			PRIMARY KEY (subprocid, version, parent, element, paramid, setvalue)
 		</command>
 	</process>
 
@@ -112,8 +112,8 @@
 			paramid varchar(32),
 			minval real,
 			maxval real,
-			PRIMARY KEY (subprocid,version,parent,element,paramid)
+			PRIMARY KEY (subprocid, version, parent, element, paramid)
 		</command>
 	</process>
-	
+
 </sql>

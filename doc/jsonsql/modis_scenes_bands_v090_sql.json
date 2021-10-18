@@ -1,0 +1,55 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "modis",
+        "table": "datapooltiles",
+        "command": [
+          "tileid character(26)",
+          "tilefilename character varying(128)",
+          "source character varying(32)",
+          "product varchar(24)",
+          "version character(3)",
+          "acqdate date",
+          "htile smallint",
+          "vtile smallint",
+          "hvtile char(6)",
+          "PRIMARY KEY (tileid,product,version)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "modis",
+        "table": "tiles",
+        "command": [
+          "tileid character(26)",
+          "tilefilename character varying(128)",
+          "source character varying(32)",
+          "product varchar(24)",
+          "version character(3)",
+          "acqdate date",
+          "doy smallint",
+          "folder varchar(16) DEFAULT 'original'",
+          "downloaded character(1) DEFAULT 'N'",
+          "organized character(1) DEFAULT 'N'",
+          "exploded character(1) DEFAULT 'N'",
+          "redundant character(1) DEFAULT 'N'",
+          "deleted character(1) DEFAULT 'N'",
+          "maskstatus character(1) DEFAULT 'N'",
+          "htile integer",
+          "vtile integer",
+          "PRIMARY KEY (tileid,product,version)"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "mgrs char(5)",
+          "utm smallint",
+          "mgrsid char(3)",
+          "PRIMARY KEY (regionid,mgrsid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "modis",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "htile smallint",
+          "vtile smallint",
+          "PRIMARY KEY (regionid,htile,vtile)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "wrspath smallint",
+          "wrsrow smallint",
+          "wrs smallint",
+          "dir char(1)",
+          "prstr char(8)",
+          "PRIMARY KEY (regionid,wrs,dir,wrspath,wrsrow)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2n",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "xntile smallint",
+          "yntile smallint",
+          "PRIMARY KEY (regionid,xntile,yntile)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2s",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "xstile smallint",
+          "ystile smallint",
+          "PRIMARY KEY (regionid,xstile,ystile)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ease2t",
+        "table": "regions",
+        "command": [
+          "regionid varchar(64)",
+          "regiontype varchar(8)",
+          "xttile smallint",
+          "yttile smallint",
+          "PRIMARY KEY (regionid,xttile,yttile)"
+        ]
+      }
+    }
+  ]
+}

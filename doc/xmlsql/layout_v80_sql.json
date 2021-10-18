@@ -1,0 +1,212 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "rasterpalcolors",
+        "command": [
+          "palette varchar(32)",
+          "value smallint NOT NULL",
+          "red smallint NOT NULL",
+          "green smallint NOT NULL",
+          "blue smallint NOT NULL",
+          "alpha smallint NOT NULL",
+          "label varchar(32)",
+          "hint varchar(128)",
+          "PRIMARY KEY (palette,value)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "legend",
+        "command": [
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(24)",
+          "suffix varchar(48)",
+          "palmin smallint",
+          "palmax smallint",
+          "precision smallint",
+          "two51 char(1) DEFAULT 'N'",
+          "two52 char(1) DEFAULT 'N'",
+          "two53 char(1) DEFAULT 'N'",
+          "two54 char(1) DEFAULT 'N'",
+          "two55 char(1) DEFAULT 'N'",
+          "height smallint DEFAULT 500",
+          "width smallint DEFAULT 100",
+          "soloheight smallint DEFAULT 70",
+          "pngheight smallint DEFAULT 300",
+          "pngwidth smallint DEFAULT 300",
+          "measure char(1)",
+          "buffer smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "margin smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "textpadding smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "separatebuffer smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "framestrokewidth real DEFAULT 1.0",
+          "framecolor smallint DEFAULT 254",
+          "framefill varchar(32) DEFAULT 'black'",
+          "label char(1)",
+          "sticklen smallint DEFAULT 0",
+          "compresslabels char(1) DEFAULT 'N'",
+          "font varchar(32) DEFAULT 'verdana'",
+          "fontcolor varchar(32) DEFAULT 'black'",
+          "fontsize smallint DEFAULT 12",
+          "fonteffect varchar(64) DEFAULT ''",
+          "titlefont varchar(32) DEFAULT 'verdana'",
+          "titlefontcolor varchar(16) DEFAULT 'black'",
+          "titlefontsize smallint DEFAULT 24",
+          "titlefonteffect varchar(64) DEFAULT ''",
+          "columns smallint DEFAULT 1",
+          "matrix char(1) DEFAULT 'N'",
+          "columntext TEXT",
+          "rowtext TEXT",
+          "columnhead TEXT",
+          "rowhead TEXT",
+          "today date",
+          "creator varchar(32)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "scaling",
+        "command": [
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(24)",
+          "suffix varchar(48)",
+          "power real",
+          "powerna smallint",
+          "mirror0 char(1)",
+          "scalefac real",
+          "offsetadd real",
+          "srcmin real",
+          "srcmax real",
+          "dstmin real",
+          "dstmax real",
+          "today date",
+          "creator varchar(32)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "defaultpalette",
+        "command": [
+          "compid TEXT",
+          "palette TEXT",
+          "PRIMARY KEY (compid,palette)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "rasterpalette",
+        "command": [
+          "compid TEXT",
+          "palette TEXT",
+          "owner TEXT",
+          "access char(1) DEFAULT 'A'",
+          "PRIMARY KEY (compid,palette)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "movieclock",
+        "command": [
+          "name TEXT",
+          "tlmargin smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "clmargin smallint ARRAY[4] DEFAULT '{5,5,5,5}'",
+          "position char(2) DEFAULT 'll'",
+          "bgcolor varchar(32) DEFAULT 'black'",
+          "tlborder smallint DEFAULT 2",
+          "clborder smallint DEFAULT 6",
+          "tlbordercolor varchar(32) DEFAULT 'beige'",
+          "clbordercolor varchar(32) DEFAULT 'beige'",
+          "clcolor varchar(32) DEFAULT 'blue'",
+          "tlheight smallint DEFAULT 10",
+          "tlticks smallint DEFAULT 1",
+          "tltickwidth smallint DEFAULT 2",
+          "tickcolor varchar(32) DEFAULT 'beige'",
+          "boettcolor varchar(32) DEFAULT 'silver'",
+          "textatclock char(1) DEFAULT 'N'",
+          "tlcolor varchar(32) DEFAULT 'purple'",
+          "clradius smallint DEFAULT 50",
+          "clhandcolor varchar(32) DEFAULT 'purple'",
+          "clframecolor varchar(32) DEFAULT 'black'",
+          "fontsize smallint DEFAULT 24",
+          "fontcolor varchar(32) DEFAULT 'gray'",
+          "fontbackground varchar(32) DEFAULT 'black'",
+          "rotate smallint DEFAULT 315",
+          "font varchar(32) DEFAULT 'Arial'",
+          "textinvideo char(1) DEFAULT 'N'",
+          "transparent varchar(32) DEFAULT 'black'",
+          "creator varchar(32)",
+          "access char(1) DEFAULT 'A'",
+          "PRIMARY KEY (name)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout",
+        "table": "pubtext",
+        "command": [
+          "compid TEXT",
+          "product varchar(24)",
+          "suffix varchar(48)",
+          "title varchar(255)",
+          "header varchar(255)",
+          "subheader varchar(255)",
+          "legendheader varchar(64)",
+          "legendtype varchar(16)",
+          "banner TEXT",
+          "hints TEXT",
+          "acknow TEXT",
+          "descript TEXT",
+          "reference TEXT",
+          "disclaim TEXT",
+          "copyright TEXT",
+          "PRIMARY KEY (compid, product, suffix)"
+        ]
+      }
+    }
+  ]
+}

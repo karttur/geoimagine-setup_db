@@ -1,0 +1,30 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ancillary",
+        "table": "srtmdptiles",
+        "command": [
+          "tileid character(26)",
+          "tilefilename character varying(128)",
+          "source character varying(32) DEFAULT 'SRTM'",
+          "product varchar(24)",
+          "version character(3)",
+          "north smallint",
+          "south smallint",
+          "east smallint",
+          "west smallint",
+          "lltile char(7)",
+          "downloaded DEFAULT 'N'",
+          "organized DEFAULT 'N'",
+          "exploded DEFAULT 'N'",
+          "PRIMARY KEY (tileid,product,version)"
+        ]
+      }
+    }
+  ]
+}

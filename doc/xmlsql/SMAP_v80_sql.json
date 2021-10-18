@@ -1,0 +1,113 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "smap",
+        "table": "smaptemplate",
+        "command": [
+          "dataid character(26)",
+          "startdate date",
+          "enddate date",
+          "resolkm smallint",
+          "temporal varchar(16)",
+          "version smallint",
+          "label TEXT",
+          "url varchar(255)",
+          "tgcomment varchar(255)",
+          "PRIMARY KEY (dataid,version)"
+        ]
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "smap",
+        "table": "smaptemplate",
+        "command": {
+          "columns": [
+            "dataid, version, startdate, enddate, resolkm, temporal, label, url, tgcomment"
+          ],
+          "values": [
+            "'SPL2SMA', 3, '2015-04-13', '2015-08-07', 3, '49minutes', 'SMAP L2 Radar Half-Orbit 3 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL2SMA/versions/3','short time orignal 3km scene data - skip'",
+            "'SPL2SMAP', 3, '2015-04-13', '2015-08-07', 9, '49minutes', 'SMAP L2 Radar/Radiometer Half-Orbit 9 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL2SMAP/versions/3','short time orignal 9km scene data - skip'",
+            "'SPL2SMAP_S', 2,  '2015-04-01', '2100-01-01', 3, '30sec', 'SMAP/Sentinel-1 L2 Radiometer/Radar 30-Second Scene 3 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL2SMAP_S/versions/2','sentinel-e combined 3km data at 30sec - beta version but check one'",
+            "'SPL2SMP', 5, '2015-03-31', '2100-01-01', 36, '49minutes', 'SMAP L2 Radiometer Half-Orbit 36 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL2SMP/versions/5','original 36km scene data - skip'",
+            "'SPL2SMP_E', 2, '2015-03-31', '2100-01-01', 36, '49minutes', 'SMAP Enhanced L2 Radiometer Half-Orbit 9 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL2SMP_E/versions/2','enhanced 9km scene data - skip'",
+            "'SPL3FTA', 3, '2015-04-13', '2015-08-07', 3, 'D',  'SMAP L3 Radar Northern Hemisphere Daily 3 km EASE-Grid Freeze/Thaw State', 'https://nsidc.org/data/SPL3FTA/versions/3','short time orignal 3km scene data - skip'",
+            "'SPL3FTP', 2,'2015-03-31', '2100-01-01', 36, 'D',  'SMAP L3 Radiometer Global and Northern Hemisphere Daily 36 km EASE-Grid Freeze/Thaw State', 'https://nsidc.org/data/SPL3FTP/versions/2', 'original 36km scene data - skip'",
+            "'SPL3FTP_E', 2,'2015-03-31', '2100-01-01', 9, 'D', 'SMAP Enhanced L3 Radiometer Global and Northern Hemisphere Daily 9 km EASE-Grid Freeze/Thaw State', 'https://nsidc.org/data/SPL3FTP_E/versions/2','enhanced 9 km - download'",
+            "'SPL3SMA', 3,'2015-04-13', '2015-08-07', 3, 'D', 'SMAP L3 Radar Global Daily 3 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL3SMA/versions/3','original daily 3 km product - download'",
+            "'SPL3SMAP', 3, '2015-04-13', '2015-08-07', 9, 'D', 'SMAP L3 Radar/Radiometer Global Daily 9 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL3SMAP/versions/3','original daily 9 km product - download'",
+            "'SPL3SMP', 5, '2015-03-31', '2100-01-01', 36, 'D', 'SMAP L3 Radiometer Global Daily 36 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL3SMP/versions/5','36 km standard product - download'",
+            "'SPL3SMP_E', 5, '2015-03-31', '2100-01-01', 9, 'D', 'SMAP Enhanced L3 Radiometer Global Daily 9 km EASE-Grid Soil Moisture', 'https://nsidc.org/data/SPL3SMP_E/versions/2','enhanced 9 km product - download'",
+            "'SPL4CMDL', 4, '2015-03-31', '2100-01-01', 9, 'D', 'SMAP L4 Global Daily 9 km EASE-Grid Carbon Net Ecosystem Exchange', 'https://nsidc.org/data/SPL4CMDL/versions/4','carbon flux - skip for now'",
+            "'SPL4SMAU', 4, '2015-03-31', '2100-01-01', 9, '3H', 'SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil Moisture Analysis Update', 'https://nsidc.org/data/SPL4SMAU/versions/4','skip for now'",
+            "'SPL4SMGP', 4, '2015-03-31', '2100-01-01', 9, '3H', 'SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil Moisture Geophysical Data', 'https://nsidc.org/data/SPL4SMGP/versions/4','skip for now'",
+            "'SPL4SMLM', 4, '2015-03-31', '2100-01-01', 9, 'static', 'SMAP L4 Global 9 km EASE-Grid Surface and Root Zone Soil Moisture Land Model Constants', 'https://nsidc.org/data/SPL4SMLM/versions/4','skip for now'"
+          ]
+        }
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "smap",
+        "table": "daacdata",
+        "command": [
+          "smapid varchar(64)",
+    			"smapfilename character varying(128)",
+    			"source character varying(32)",
+    			"product varchar(24)",
+    			"version character(3)",
+    			"acqdate date",
+    			"doy smallint",
+    			"folder varchar(16) DEFAULT 'original'",
+    			"downloaded character(1) DEFAULT 'N'",
+    			"organized character(1) DEFAULT 'N'",
+    			"exploded character(1) DEFAULT 'N'",
+    			"redundant character(1) DEFAULT 'N'",
+    			"deleted character(1) DEFAULT 'N'",
+    			"maskstatus character(1) DEFAULT 'Y'",
+    			"PRIMARY KEY (smapid,product,version)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "smap",
+        "table": "daacdata",
+        "command": [
+          "smapid varchar(64)",
+    			"smapfilename character varying(128)",
+    			"source character varying(32)",
+    			"product varchar(24)",
+    			"version character(3)",
+    			"acqdate date",
+    			"doy smallint",
+    			"folder varchar(16) DEFAULT 'original'",
+    			"downloaded character(1) DEFAULT 'N'",
+    			"organized character(1) DEFAULT 'N'",
+    			"exploded character(1) DEFAULT 'N'",
+    			"redundant character(1) DEFAULT 'N'",
+    			"deleted character(1) DEFAULT 'N'",
+    			"maskstatus character(1) DEFAULT 'Y'",
+    			"PRIMARY KEY (smapid,product,version)"
+        ]
+      }
+    }
+  ]
+}

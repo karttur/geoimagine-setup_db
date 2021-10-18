@@ -1,0 +1,69 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "template",
+        "command": [
+          "source character varying(32)",
+    			"product varchar(24)",
+    			"sensor varchar(16)",
+    			"folder varchar(32)",
+    			"band character varying(32)",
+    			"prefix varchar(32)",
+    			"suffix varchar(32)",
+    			"fileext varchar(8)",
+    			"celltype character varying(8)",
+    			"dataunit character varying(32)",
+    			"compid varchar(128)",
+    			"resol smallint",
+    			"scalefac real",
+    			"offsetadd real",
+    			"cellnull bigint",
+    			"retrieve character(1)",
+    			"measure char(1)",
+    			"wavelen real",
+    			"searchstr varchar(32)",
+    			"bandname varchar(32)",
+    			"PRIMARY KEY (product,sensor,band)"
+        ]
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel",
+        "table": "template",
+        "command": {
+          "columns": [
+            "source, product, sensor, folder, band, prefix, suffix, fileext, celltype, dataunit, compid,  resol, scalefac, offsetadd, cellnull, retrieve, measure, wavelen, searchstr, bandname"
+          ],
+          "values": [
+            "'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'cb', 'cb-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_cb', 20, 0.0001, 0, -32768, 'Y', 'R', 0.443, 'B01.jp2','B01'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'bl', 'bl-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_bl', 20, 0.0001, 0, -32768, 'Y', 'R', 0.490, 'B02.jp2','B02'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'gl', 'gl-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_gl', 20, 0.0001, 0, -32768, 'Y', 'R', 0.560, 'B03.jp2','B03'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'rl', 'rl-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_rl', 20, 0.0001, 0, -32768, 'Y', 'R', 0.665, 'B04.jp2','B04'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 're', 're-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_re', 20, 0.0001, 0, -32768, 'Y', 'R', 0.705, 'B05.jp2','B05'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'rf', 'rf-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_rf', 20, 0.0001, 0, -32768, 'Y', 'R', 0.740, 'B06.jp2','B06'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'rg', 'rg-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_rg', 20, 0.0001, 0, -32768, 'Y', 'R', 0.783, 'B07.jp2','B07'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'na', 'na-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_na', 20, 0.0001, 0, -32768, 'Y', 'R', 0.842, 'B08.jp2','B08'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'nb', 'nb-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_na', 20, 0.0001, 0, -32768, 'Y', 'R', 0.865, 'B8A.jp2','B8A'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'nw', 'nw-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_nw', 20, 0.0001, 0, -32768, 'Y', 'R', 0.945, 'B09.jp2','B09'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'mw', 'mw-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_mw', 20, 0.0001, 0, -32768, 'Y', 'R', 1.375, 'B10.jp2','B10'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'ma', 'ma-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_ma', 20, 0.0001, 0, -32768, 'Y', 'R', 1.610, 'B11.jp2','B11'",
+      			"'MSI', 'S2MSI1C', 'MSI', 'toarfi', 'mb', 'mb-toarfi', 'L1C',  '.tif','INT16','Reflectance','toarfi_mb', 20, 0.0001, 0, -32768, 'Y', 'R', 2.190, 'B12.jp2','B12'",
+      			"'SAR-C', 'GRD', 'SAR-C', 'SAR', 'vv', 'vv-grd', 'L1C',  '.tif','INT16','Backscatter','SAR_vv', 20, 0.0001, 0, -32768, 'Y', 'R', 5.405, 'iw-grd-vv','VV'",
+      			"'SAR-C', 'GRD', 'SAR-C', 'SAR', 'vh', 'vh-grd', 'L1C',  '.tif','INT16','Backscatter','SAR_vh', 20, 0.0001, 0, -32768, 'Y', 'R', 5.405, 'iw-grd-vh','VH'"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "process": [
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "process"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "ancillary"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "system"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "regions"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "sentinel"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "modis"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "userlocale"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "specimen"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "layout"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "export"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "soilmoisture"
+      }
+    },
+    {
+      "processid": "createschema",
+      "parameters": {
+        "db": "karttur",
+        "schema": "smap"
+      }
+    }
+  ]
+}

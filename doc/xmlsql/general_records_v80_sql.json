@@ -1,0 +1,802 @@
+{
+  "process": [
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "rootprocesses",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "title",
+            "label",
+            "creator"
+          ],
+          "values": [
+            [
+              "'manageprocess'",
+              "'Manage database defined process'",
+              "'Mangaging a processes requires data on all parameters and their type and default values'",
+              "'thomasg'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "subprocesses",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "minuserstratum",
+            "title",
+            "label",
+            "creator",
+            "access"
+          ],
+          "values": [
+            [
+              "'manageprocess'",
+              "'addrootproc'",
+              "'0.8.0'",
+              "10",
+              "'Add root process to database'",
+              "'Root processes are contianers for processes having similar input/output requirements'",
+              "'thomasg'",
+              "'public'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "6",
+              "'Add sub process to database'",
+              "'Adding a sub processes requires data on all parameters and their type and default values'",
+              "'thomasg'",
+              "'public'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "parent",
+            "element",
+            "paramid",
+            "paramtyp",
+            "tagorattr",
+            "required",
+            "defaultvalue"
+          ],
+          "values": [
+            [
+              "'manageprocess'",
+              "'addrootproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'rootprocid'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addrootproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'title'",
+              "'text'",
+              "'T'",
+              "'N'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addrootproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'label'",
+              "'text'",
+              "'T'",
+              "'N'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'rootprocid'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'subprocid'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'version'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'minuserstratum'",
+              "'integer'",
+              "'A'",
+              "'Y'",
+              "'1'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'title'",
+              "'text'",
+              "'T'",
+              "'N'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'parameters'",
+              "'label'",
+              "'text'",
+              "'T'",
+              "'N'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'system'",
+              "'procsys'",
+              "'text'",
+              "'E'",
+              "'E'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'system'",
+              "'procsys'",
+              "'system'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'system'",
+              "'procsys'",
+              "'srcsystem'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'system'",
+              "'procsys'",
+              "'dstsystem'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'system'",
+              "'procsys'",
+              "'srcdivision'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'system'",
+              "'procsys'",
+              "'dstdivision'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'node'",
+              "'parameter'",
+              "'element'",
+              "'E'",
+              "'E'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'node'",
+              "'parent'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'process'",
+              "'node'",
+              "'element'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'node'",
+              "'parameter'",
+              "'paramid'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'node'",
+              "'parameter'",
+              "'paramtyp'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'node'",
+              "'parameter'",
+              "'tagorattr'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'node'",
+              "'parameter'",
+              "'required'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'node'",
+              "'parameter'",
+              "'defaultvalue'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "parent",
+            "element",
+            "paramid",
+            "paramtyp",
+            "tagorattr",
+            "required",
+            "defaultvalue"
+          ],
+          "values": [
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'userid'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "'view'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'projectid'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "'view'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'userpswd'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "''"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'tractid'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "'*'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'siteid'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "'*'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'plotid'",
+              "'text'",
+              "'A'",
+              "'N'",
+              "'*'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'root'",
+              "'userproj'",
+              "'system'",
+              "'text'",
+              "'A'",
+              "'Y'",
+              "''"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "parent",
+            "element",
+            "paramid",
+            "paramtyp",
+            "tagorattr",
+            "required",
+            "defaultvalue"
+          ],
+          "values": [
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'system'",
+              "'system'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'ancillary'",
+              "'ancillary'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'region'",
+              "'region'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'modis'",
+              "'modis'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'landsat'",
+              "'landsat'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'user'",
+              "'user'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'specimen'",
+              "'specimen'"
+            ],
+            [
+              "'all'",
+              "'userproj'",
+              "'0.8.0'",
+              "'system'",
+              "'userproj'",
+              "'system'",
+              "'topo'",
+              "'topo'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "parent",
+            "element",
+            "paramid",
+            "paramtyp",
+            "tagorattr",
+            "required",
+            "defaultvalue"
+          ],
+          "values": [
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'text'",
+              "'textorstring'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'real'",
+              "'realnumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'int'",
+              "'integernumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'intlist'",
+              "'listofintegernumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'textlist'",
+              "'listoftextstrings'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'bool'",
+              "'boolean'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "rootprocid",
+            "subprocid",
+            "version",
+            "parent",
+            "element",
+            "paramid",
+            "paramtyp",
+            "tagorattr",
+            "required",
+            "defaultvalue"
+          ],
+          "values": [
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'text'",
+              "'textorstring'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'real'",
+              "'realnumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'int'",
+              "'integernumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'intlist'",
+              "'listofintegernumber'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'textlist'",
+              "'listoftextstrings'"
+            ],
+            [
+              "'manageprocess'",
+              "'addsubproc'",
+              "'0.8.0'",
+              "'paramtyp'",
+              "'node'",
+              "'parameter'",
+              "'bool'",
+              "'boolean'"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "processid": "tableinsert",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "process",
+        "table": "processparams",
+        "command": {
+          "columns": [
+            "subprocid",
+            "system",
+            "srcsystem",
+            "dstsystem",
+            "srcdivision",
+            "dstdivision"
+          ],
+          "values": [
+            [
+              "'addrootproc'",
+              "'system'",
+              "'NA'",
+              "'NA'",
+              "'NA'",
+              "'NA'"
+            ],
+            [
+              "'addsubproc'",
+              "'system'",
+              "'NA'",
+              "'NA'",
+              "'NA'",
+              "'NA'"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -126,6 +126,3 @@ GRANT USAGE ON SCHEMA regions TO manageexport;
 GRANT SELECT  ON ALL TABLES IN SCHEMA regions TO manageexport;
 GRANT USAGE ON SCHEMA layout TO manageexport;
 GRANT SELECT  ON ALL TABLES IN SCHEMA layout TO manageexport;
-
-
-\q

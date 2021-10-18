@@ -1,0 +1,23 @@
+{
+  "userproject": {
+    "userid": "karttur",
+    "projectid": "karttur",
+    "tractid": "system",
+    "siteid": "*",
+    "plotid": "*",
+    "system": "system"
+  },
+  "process": [
+    {
+      "overwrite": false,
+      "delete": false,
+      "verbose": 1,
+      "srcpath": {
+        "volume": "home"
+      },
+      "dstpath": {
+        "volume": "home"
+      }
+    }
+  ]
+}

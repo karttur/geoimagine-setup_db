@@ -1,0 +1,103 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ancillary",
+        "table": "compdef",
+        "command": [
+          "compid TEXT",
+          "folder varchar(32)",
+          "band varchar(64)",
+          "prefix varchar(32)",
+          "scalefac real",
+          "offsetadd real",
+          "measure char(1) NOT NULL",
+          "dataunit varchar(32)",
+          "title varchar(255)",
+          "label varchar(255)",
+          "PRIMARY KEY (compid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ancillary",
+        "table": "compprod",
+        "command": [
+          "compid TEXT",
+          "system varchar(16) NOT NULL",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "cellnull real",
+          "celltype varchar(8)",
+          "masked character(1) DEFAULT 'N'",
+          "title varchar(255)",
+          "label varchar(255)",
+          "frequency varchar(20)",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "ancillary",
+        "table": "layer",
+        "command": [
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "acqdatestr varchar(20)",
+          "acqdate date",
+          "doy smallint",
+          "createdate date DEFAULT CURRENT_DATE",
+          "locusid TEXT",
+          "PRIMARY KEY (compid,source,product,suffix,locusid,acqdatestr)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "export",
+        "table": "legend",
+        "command": [
+          "compid TEXT",
+          "source TEXT",
+          "product varchar(32)",
+          "suffix varchar(64)",
+          "scalefac real DEFAULT 1",
+          "offsetadd real DEFAULT 0",
+          "power real DEFAULT 0",
+          "mirror0 char(1) DEFAULT 'N'",
+          "two51 char(1) DEFAULT 'N'",
+          "two52 char(1) DEFAULT 'N'",
+          "two53 char(1) DEFAULT 'N'",
+          "two54 char(1) DEFAULT 'N'",
+          "two55 char(1) DEFAULT 'N'",
+          "palmin smallint",
+          "palmax smallint",
+          "legmin smallint",
+          "legmax smallint",
+          "PRIMARY KEY (compid,source,product,suffix)"
+        ]
+      }
+    }
+  ]
+}

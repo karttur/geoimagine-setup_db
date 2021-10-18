@@ -1,0 +1,226 @@
+{
+  "process": [
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "scenes",
+        "command": [
+          "lsatprodid varchar(64)",
+          "source varchar(8) NOT NULL",
+          "product varchar(8) NOT NULL",
+          "acqdate date NOT NULL",
+          "acqdatestr char(8) NOT NULL",
+          "acqdoy smallint NOT NULL",
+          "collnr integer NOT NULL",
+          "collcat varchar(8) NOT NULL",
+          "proccat varchar(16) NOT NULL",
+          "wrs character(1) DEFAULT 2",
+          "wrspath smallint NOT NULL",
+          "wrsrow smallint NOT NULL",
+          "downloaded character(1) DEFAULT 'N'",
+          "organized character(1) DEFAULT 'N'",
+          "exploded character(1) DEFAULT 'N'",
+          "reflcalmeta character(1) DEFAULT 'N'",
+          "emiscalmeta character(1) DEFAULT 'N'",
+          "atmcal character(1) DEFAULT 'N'",
+          "toarfi character(1) DEFAULT 'N'",
+          "srfi character(1) DEFAULT 'N'",
+          "rgbdn character(1) DEFAULT 'N'",
+          "rgbtoa character(1) DEFAULT 'N'",
+          "rgbsrfi character(1) DEFAULT 'N'",
+          "rgbtc character(1) DEFAULT 'N'",
+          "rgbdeveg character(1) DEFAULT 'N'",
+          "emissivity character(1) DEFAULT 'N'",
+          "redundant character(1) DEFAULT 'N'",
+          "deleted character(1) DEFAULT 'N'",
+          "metastatus character(1) DEFAULT 'N'",
+          "maskstatus character(1) DEFAULT 'N'",
+          "qamask character(1) DEFAULT 'N'",
+          "tgnote varchar(32) DEFAULT 'ok'",
+          "PRIMARY KEY (lsatprodid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "bands",
+        "command": [
+          "lsatprodid varchar(64)",
+          "folder character varying(32)",
+          "band character varying(32)",
+          "prefix character varying(32)",
+          "suffix character varying(32)",
+          "PRIMARY KEY (lsatprodid, folder, band, suffix)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "dnreflcal",
+        "command": [
+          "lsatprodid varchar(64)",
+          "band character varying(32)",
+          "reflmax float",
+          "reflmin float",
+          "radmax float",
+          "radmin float",
+          "qclmax float",
+          "qclmin float",
+          "radgain float",
+          "radbias float",
+          "reflgain float",
+          "reflbias float",
+          "PRIMARY KEY (lsatprodid, band)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "banddos",
+        "command": [
+          "lsatprodid varchar(64)",
+          "band character varying(32)",
+          "method char(2) DEFAULT 'rl'",
+          "minhisto int",
+          "maxhisto int",
+          "he float",
+          "dnhelo int",
+          "dnhehi int",
+          "dosdn int",
+          "dospath float",
+          "chavezdn int",
+          "chavezpath float",
+          "parisdn int",
+          "parispath float",
+          "rlfitdn int",
+          "rlfitpath float",
+          "multifitdn int",
+          "multifitpath float",
+          "PRIMARY KEY (lsatprodid,band,method)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "scenedos",
+        "command": [
+          "lsatprodid varchar(64)",
+          "method char(2) DEFAULT 'rl'",
+          "rlp float",
+          "rlp2 float",
+          "multip float",
+          "multip2 float",
+          "PRIMARY KEY (lsatprodid,method)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "dnemiscal",
+        "command": [
+          "lsatprodid varchar(64)",
+          "band character varying(32)",
+          "radmax float",
+          "radmin float",
+          "qclmax float",
+          "qclmin float",
+          "radgain float",
+          "radbias float",
+          "k1 float",
+          "k2 float",
+          "PRIMARY KEY (lsatprodid,band)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "imgattr",
+        "command": [
+          "lsatprodid varchar(64)",
+          "cloudcov float",
+          "cloudcovland float",
+          "sunazim float",
+          "sunelev float",
+          "esdist float",
+          "geormse float",
+          "PRIMARY KEY (lsatprodid)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "wavelengths",
+        "command": [
+          "source varchar(8)",
+          "band character varying(32)",
+          "wlmax float",
+          "wlmin float",
+          "wlcenter float",
+          "esun float",
+          "PRIMARY KEY (source,band)"
+        ]
+      }
+    },
+    {
+      "processid": "createtable",
+      "overwrite": false,
+      "delete": false,
+      "parameters": {
+        "db": "karttur",
+        "schema": "landsat",
+        "table": "dossrfi",
+        "command": [
+          "lsatprodid varchar(64)",
+          "suffix varchar(32)",
+          "proddate date",
+          "pvalue float",
+          "pcode varchar(16)",
+          "doscode varchar(16)",
+          "icrl float",
+          "msfac float",
+          "method char(2)",
+          "PRIMARY KEY (lsatprodid,suffix)"
+        ]
+      }
+    }
+  ]
+}
